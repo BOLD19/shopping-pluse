@@ -17,42 +17,49 @@ import {
   Zap,
   FileSpreadsheet,
   ArrowRight,
-  CheckCircle2,
-  Download
+  CheckCircle2
 } from 'lucide-react'
+import BnplBusinessSimplificationBlock from '@/components/BnplBusinessSimplificationBlock'
 
 export default function BankingPage() {
   return (
     <div className="w-full">
       {/* Hero Section */}
       <section className="relative w-full min-h-screen px-4 flex flex-col items-center justify-center overflow-hidden">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#F0F4FF] via-white to-white z-0"></div>
-        <div className="absolute inset-0 bg-grid-purple/[0.02] bg-[length:20px_20px] z-0"></div>
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#8F6ED5]/20 blur-[100px] z-0"></div>
+        {/* Dark Gradient Background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A] via-[#232136] to-[#2D2A3A] z-0"></div>
+        <div className="absolute inset-0 bg-grid-purple/[0.04] bg-[length:20px_20px] z-0"></div>
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#8F6ED5]/10 blur-[100px] z-0"></div>
+        {/* Фиолетовые прямоугольники как на BNPL */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none select-none z-0">
+          <div className="absolute top-0 right-0 w-[800px] h-[600px] transform rotate-[-10deg] translate-x-1/4 translate-y-[-10%] bg-gradient-to-br from-[#8F6ED5] via-[#6B4FD5] to-[#FDFCFB] opacity-40 rounded-[40px] transition-all duration-1000"></div>
+          <div className="absolute top-1/3 right-0 w-[600px] h-[400px] transform rotate-[-15deg] translate-x-1/3 bg-gradient-to-br from-[#7F5EC5] via-[#5B3FD5] to-[#FDFCFB] opacity-30 rounded-[40px] transition-all duration-1000"></div>
+          <div className="absolute bottom-10 right-1/4 w-[300px] h-[200px] transform rotate-[-5deg] bg-gradient-to-br from-[#6B4FD5] via-[#4B2FD5] to-[#FDFCFB] opacity-20 rounded-[40px] transition-all duration-1000"></div>
+        </div>
         
         <div className="container relative z-10 flex flex-col lg:flex-row items-center max-w-6xl mx-auto">
-          <div className="flex-1 text-center lg:text-left mb-10 lg:mb-0">
-            <h1 className="text-4xl md:text-6xl font-bold text-[#1A1A1A] mb-6">
-              Управляйте финансами из любой точки — <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8F6ED5] to-lime-500">24/7</span>
+          <div className="flex-1 text-left mb-10 lg:mb-0 w-full">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 md:-ml-[36px]">
+              Современный банкинг<br />для бизнеса
             </h1>
             
-            <p className="text-lg md:text-xl text-[#6B6B6B] max-w-2xl mb-10">
+            <p className="text-lg md:text-xl text-white/80 max-w-2xl mb-10 md:-ml-[36px]">
               Мобильное приложение и интернет-банк Pluse — всё, что нужно предпринимателю для контроля за деньгами.
             </p>
             
-            <Link href="#connect" className="inline-flex items-center bg-gradient-to-r from-[#8F6ED5] to-[#7F5EC5] hover:from-[#7F5EC5] hover:to-[#6F4DB5] text-white px-8 py-4 rounded-2xl text-lg font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all">
-              Подключить интернет-банк
+            <Link
+              href={`https://wa.me/77474288095?text=${encodeURIComponent('Здравствуйте! Хочу отрыть счет для бизнеса у вас')}`}
+              className="inline-flex items-center bg-gradient-to-r from-[#8F6ED5] to-[#7F5EC5] hover:from-[#7F5EC5] hover:to-[#6F4DB5] text-white px-8 py-4 rounded-2xl text-lg font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all md:-ml-[36px]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Записаться в список ожидания
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
 
           <div className="flex-1 relative">
             <div className="relative w-full max-w-md mx-auto">
-              {/* 3D Elements */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-lime-400/20 to-lime-600/20 rounded-2xl transform rotate-12 backdrop-blur-xl"></div>
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-gradient-to-br from-[#8F6ED5]/20 to-[#7F5EC5]/20 rounded-2xl transform -rotate-12 backdrop-blur-xl"></div>
-              
               {/* Main Device Frame */}
               <div className="relative bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-xl">
                 <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-gray-100 rounded-full"></div>
@@ -131,7 +138,7 @@ export default function BankingPage() {
       <section className="py-20 bg-[#F0F4FF]">
         <div className="container max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1A1A1A] mb-16">
-            Что умеет интернет-банк Pluse
+            Возможности интернет-банка Pluse.kz
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -139,7 +146,7 @@ export default function BankingPage() {
               <div className="bg-gradient-to-br from-[#8F6ED5] to-[#7F5EC5] rounded-xl w-14 h-14 flex items-center justify-center mb-6">
                 <Zap className="h-7 w-7 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-4">Платежи и переводы за 1 минуту</h3>
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-4">Платежи и переводы<br className='hidden md:block' />за 1 минуту</h3>
               <p className="text-[#6B6B6B]">Мгновенные переводы между счетами и оплата налогов, коммунальных услуг и счетов контрагентов</p>
             </div>
 
@@ -147,7 +154,7 @@ export default function BankingPage() {
               <div className="bg-gradient-to-br from-[#8F6ED5] to-[#7F5EC5] rounded-xl w-14 h-14 flex items-center justify-center mb-6">
                 <BarChart2 className="h-7 w-7 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-4">История операций и аналитика</h3>
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-4">История операций<br className='hidden md:block' />и аналитика</h3>
               <p className="text-[#6B6B6B]">Полная история транзакций с удобной фильтрацией и графики доходов/расходов по категориям</p>
             </div>
 
@@ -155,7 +162,7 @@ export default function BankingPage() {
               <div className="bg-gradient-to-br from-[#8F6ED5] to-[#7F5EC5] rounded-xl w-14 h-14 flex items-center justify-center mb-6">
                 <Bell className="h-7 w-7 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-4">Уведомления о движениях</h3>
+              <h3 className="text-xl font-bold text-[#1A1A1A] mb-4">Уведомления<br className='hidden md:block' />о движениях</h3>
               <p className="text-[#6B6B6B]">Мгновенные push и email-уведомления о каждой операции по вашим счетам и картам</p>
             </div>
 
@@ -197,7 +204,7 @@ export default function BankingPage() {
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-[#8F6ED5] to-[#7F5EC5] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              <div className="relative bg-[#F0F4FF] rounded-2xl p-8 group-hover:bg-opacity-0 transition-colors">
+              <div className="relative bg-[#F0F4FF] rounded-2xl p-8 group-hover:bg-opacity-0 transition-colors min-h-[340px]">
                 <div className="bg-white rounded-xl w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-opacity-10">
                   <Clock className="h-8 w-8 text-[#8F6ED5] group-hover:text-white transition-colors" />
                 </div>
@@ -215,7 +222,7 @@ export default function BankingPage() {
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-[#8F6ED5] to-[#7F5EC5] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              <div className="relative bg-[#F0F4FF] rounded-2xl p-8 group-hover:bg-opacity-0 transition-colors">
+              <div className="relative bg-[#F0F4FF] rounded-2xl p-8 group-hover:bg-opacity-0 transition-colors min-h-[340px]">
                 <div className="bg-white rounded-xl w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-opacity-10">
                   <Zap className="h-8 w-8 text-[#8F6ED5] group-hover:text-white transition-colors" />
                 </div>
@@ -233,7 +240,7 @@ export default function BankingPage() {
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-[#8F6ED5] to-[#7F5EC5] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              <div className="relative bg-[#F0F4FF] rounded-2xl p-8 group-hover:bg-opacity-0 transition-colors">
+              <div className="relative bg-[#F0F4FF] rounded-2xl p-8 group-hover:bg-opacity-0 transition-colors min-h-[340px]">
                 <div className="bg-white rounded-xl w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-opacity-10">
                   <Shield className="h-8 w-8 text-[#8F6ED5] group-hover:text-white transition-colors" />
                 </div>
@@ -251,7 +258,7 @@ export default function BankingPage() {
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-r from-[#8F6ED5] to-[#7F5EC5] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               
-              <div className="relative bg-[#F0F4FF] rounded-2xl p-8 group-hover:bg-opacity-0 transition-colors">
+              <div className="relative bg-[#F0F4FF] rounded-2xl p-8 group-hover:bg-opacity-0 transition-colors min-h-[340px]">
                 <div className="bg-white rounded-xl w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-opacity-10">
                   <FileSpreadsheet className="h-8 w-8 text-[#8F6ED5] group-hover:text-white transition-colors" />
                 </div>
@@ -269,38 +276,39 @@ export default function BankingPage() {
         </div>
       </section>
 
+      {/* Блок: Мы делаем бизнес проще — честно и прозрачно */}
+      <BnplBusinessSimplificationBlock />
+
       {/* Steps Section */}
       <section className="py-20 bg-[#F0F4FF]">
         <div className="container max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-[#1A1A1A] mb-16">
-            Как подключить
+            Как подключить?
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="relative">
-              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg">
+              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg min-h-[320px]">
                 <div className="bg-gradient-to-br from-[#8F6ED5] to-[#7F5EC5] w-16 h-16 rounded-full flex items-center justify-center mb-6">
                   <span className="text-2xl font-bold text-white">1</span>
                 </div>
                 <h3 className="text-xl font-bold text-[#1A1A1A] mb-4">Откройте счёт в Pluse</h3>
                 <p className="text-[#6B6B6B]">Зарегистрируйтесь онлайн или посетите отделение банка для открытия счёта</p>
               </div>
-              <div className="hidden md:block absolute top-1/2 left-full w-full h-px bg-gradient-to-r from-[#8F6ED5] to-transparent"></div>
             </div>
 
             <div className="relative">
-              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg">
+              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg min-h-[320px]">
                 <div className="bg-gradient-to-br from-[#8F6ED5] to-[#7F5EC5] w-16 h-16 rounded-full flex items-center justify-center mb-6">
                   <span className="text-2xl font-bold text-white">2</span>
                 </div>
                 <h3 className="text-xl font-bold text-[#1A1A1A] mb-4">Войдите в приложение</h3>
                 <p className="text-[#6B6B6B]">Скачайте и установите приложение Pluse Banking и авторизуйтесь</p>
               </div>
-              <div className="hidden md:block absolute top-1/2 left-full w-full h-px bg-gradient-to-r from-[#8F6ED5] to-transparent"></div>
             </div>
 
             <div className="relative">
-              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg">
+              <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg min-h-[320px]">
                 <div className="bg-gradient-to-br from-[#8F6ED5] to-[#7F5EC5] w-16 h-16 rounded-full flex items-center justify-center mb-6">
                   <span className="text-2xl font-bold text-white">3</span>
                 </div>
@@ -321,31 +329,32 @@ export default function BankingPage() {
             </h2>
             
             <p className="text-xl text-[#6B6B6B] mb-10">
-              Управляйте финансами вашего бизнеса где бы вы ни находились — в офисе, дома или в командировке
+              Управляйте финансами вашего бизнеса где бы вы ни находились —<br />
+              в офисе, дома или в командировке
             </p>
             
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="#app" className="inline-flex items-center justify-center bg-gradient-to-r from-[#8F6ED5] to-[#7F5EC5] hover:from-[#7F5EC5] hover:to-[#6F4DB5] text-white px-8 py-4 rounded-2xl text-lg font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all w-full sm:w-auto">
-                <Download className="mr-2 h-5 w-5" />
-                Скачать приложение
-              </Link>
-              
-              <Link href="#connect-bank" className="inline-flex items-center justify-center bg-white border border-[#8F6ED5] text-[#8F6ED5] hover:bg-[#F0F4FF] px-8 py-4 rounded-2xl text-lg font-medium transition-all w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+              <Link 
+                href={`https://wa.me/77474288095?text=${encodeURIComponent('Добрый день! Хочу открыть интернет-банк Pluse для бизнеса.')}`}
+                className="inline-flex items-center justify-center bg-gradient-to-r from-[#8F6ED5] to-[#7F5EC5] hover:from-[#7F5EC5] hover:to-[#6F4DB5] text-white px-8 py-4 rounded-2xl text-lg font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all w-full sm:w-auto"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Подключить интернет-банк
               </Link>
             </div>
             
             <div className="mt-10 flex items-center justify-center space-x-6 text-[#6B6B6B]">
               <div className="flex items-center">
-                <CheckCircle2 className="h-5 w-5 text-lime-500 mr-2" />
+                <CheckCircle2 className="h-5 w-5 text-[#8F6ED5] mr-2" />
                 <span>Доступ 24/7</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle2 className="h-5 w-5 text-lime-500 mr-2" />
+                <CheckCircle2 className="h-5 w-5 text-[#8F6ED5] mr-2" />
                 <span>Надёжная защита</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle2 className="h-5 w-5 text-lime-500 mr-2" />
+                <CheckCircle2 className="h-5 w-5 text-[#8F6ED5] mr-2" />
                 <span>Техподдержка</span>
               </div>
             </div>

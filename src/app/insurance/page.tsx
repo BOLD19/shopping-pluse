@@ -32,6 +32,102 @@ import {
   CreditCard as CreditCardIcon
 } from 'lucide-react'
 
+function InsuranceForm() {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    try {
+      const res = await fetch('/api/telegram-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          name, 
+          phone, 
+          utm: 'insurance_page_form' 
+        }),
+      });
+      if (res.ok) {
+        setSuccess(true);
+        setName('');
+        setPhone('');
+        setTimeout(() => setSuccess(false), 3000);
+      } else {
+        const data = await res.json();
+        setError(data.error || 'Ошибка отправки');
+      }
+    } catch (e) {
+      setError('Ошибка отправки');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="bg-white rounded-3xl shadow-xl p-8 w-full max-w-md relative z-10">
+      <h3 className="text-xl font-semibold mb-4 mt-8">Оставить заявку</h3>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Ваше имя"
+          className="w-full mb-3 px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8F6ED5] outline-none"
+          value={name}
+          onChange={e => setName(e.target.value)}
+          required
+        />
+        <div className="flex items-center mb-3">
+          <span className="inline-block bg-[#F0F4FF] px-3 py-2 rounded-l-xl border border-r-0 border-gray-200 text-[#8F6ED5] font-medium">+7</span>
+          <input
+            type="tel"
+            placeholder="(___) ___-__-__"
+            className="w-full px-4 py-3 rounded-r-xl border border-gray-200 focus:border-[#8F6ED5] outline-none"
+            value={phone}
+            onChange={e => setPhone(e.target.value)}
+            required
+          />
+        </div>
+        <div className="flex items-center mb-4">
+          <input type="checkbox" id="privacy" className="mr-2" required />
+          <label htmlFor="privacy" className="text-xs text-gray-500">Я согласен с <a href="/privacy" className="underline text-[#8F6ED5]">политикой конфиденциальности</a></label>
+        </div>
+        <button
+          type="submit"
+          className="w-full bg-[#8F6ED5] hover:bg-[#7F5EC5] text-white font-medium py-3 px-6 rounded-xl transition-all disabled:opacity-60"
+          disabled={loading}
+        >
+          {loading ? 'Отправка...' : 'Оставить заявку'}
+        </button>
+        {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
+      </form>
+      {/* Pop-up окно об успехе */}
+      {success && (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-50 bg-black/40"
+          onClick={() => setSuccess(false)}
+        >
+          <div className="bg-white rounded-2xl px-8 py-6 shadow-xl text-center max-w-xs mx-auto">
+            <div className="text-2xl mb-2">🎉</div>
+            <div className="text-lg font-semibold mb-2">Форма успешно отправлена!</div>
+            <div className="text-gray-500 text-sm mb-2">Спасибо! Мы свяжемся с вами в ближайшее время.</div>
+            <button
+              className="mt-2 px-4 py-2 bg-[#8F6ED5] text-white rounded-xl font-medium hover:bg-[#7F5EC5] transition"
+              onClick={() => setSuccess(false)}
+            >
+              Закрыть
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 export default function InsurancePage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -45,31 +141,43 @@ export default function InsurancePage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
+    // TODO: Implement proper form submission logic
+    alert('Спасибо! Мы свяжемся с вами в ближайшее время.')
     setFormData({ name: '', phone: '' })
   }
 
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative w-full px-4 py-20 md:py-32 flex flex-col items-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#F0F4FF] via-white to-white z-0"></div>
-        <div className="absolute top-0 left-0 w-full h-full bg-grid-purple/[0.02] bg-[length:20px_20px] z-0"></div>
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#8F6ED5]/30 blur-[100px] z-0"></div>
-        
-        <div className="container relative z-10 flex flex-col items-center max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-[#1A1A1A] mb-6">
-            Страхование бизнеса <span className="text-[#8F6ED5]">без лишних хлопот</span>
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#181C36] h-[568px] py-8 sm:py-0">
+        {/* Геометрические элементы */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none select-none">
+          {/* Большой фиолетовый угол */}
+          <div className="absolute top-0 right-0 w-[800px] h-[600px] transform rotate-[-10deg] translate-x-1/4 translate-y-[-10%] bg-gradient-to-br from-[#8F6ED5] via-[#6B4FD5] to-[#FDFCFB] opacity-40 rounded-[40px] transition-all duration-1000"></div>
+          {/* Средний угол */}
+          <div className="absolute top-1/3 right-0 w-[600px] h-[400px] transform rotate-[-15deg] translate-x-1/3 bg-gradient-to-br from-[#7F5EC5] via-[#5B3FD5] to-[#FDFCFB] opacity-30 rounded-[40px] transition-all duration-1000"></div>
+          {/* Маленький угол */}
+          <div className="absolute bottom-10 right-1/4 w-[300px] h-[200px] transform rotate-[-5deg] bg-gradient-to-br from-[#6B4FD5] via-[#4B2FD5] to-[#FDFCFB] opacity-20 rounded-[40px] transition-all duration-1000"></div>
+        </div>
+        {/* Текстовый блок hero */}
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full relative z-10 flex items-center min-h-[80vh] sm:min-h-[60vh]">
+          <div className="w-full md:max-w-[800px] lg:max-w-[900px] text-left mt-12">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight text-left break-words px-4">
+              Страхование бизнеса<br />без лишних хлопот
           </h1>
-          
-          <p className="text-lg md:text-xl text-[#6B6B6B] max-w-3xl mb-10">
-            Защитите свой бизнес от непредвиденных ситуаций с помощью комплексных страховых решений от Pluse.kz. Мы сотрудничаем с ведущими страховыми компаниями Казахстана, чтобы предложить вам лучшие условия.
-          </p>
-          
-          <Link href="https://wa.me/77xxxxxxxx" className="flex items-center justify-center px-8 py-4 text-lg font-medium text-white transition-all rounded-full bg-[#8F6ED5] hover:bg-[#7F5EC5] shadow-lg shadow-[#8F6ED5]/20 hover:shadow-[#8F6ED5]/40">
+            <div className="text-sm sm:text-lg text-white/80 mb-8 max-w-lg text-left px-4">
+              Защитите бизнес от рисков — страховые решения от Pluse.kz с лучшими условиями от топовых компаний Казахстана.
+            </div>
+            <a
+              href="https://wa.me/77070607140?text=Здравствуйте!%20Интересует%20страхование%20ТОО.%20Можно%20узнать%20условия?"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white text-[#8F6ED5] border-2 border-[#8F6ED5] sm:bg-[#8F6ED5] sm:text-white sm:border-none px-4 py-3 text-sm rounded-lg sm:px-8 sm:py-4 sm:text-base sm:rounded-xl hover:bg-[#F0F4FF] sm:hover:bg-[#7F5EC5] transition-all duration-200 ml-4"
+            >
+              <MessageCircle className="w-5 h-5" />
             Получить консультацию
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -219,7 +327,6 @@ export default function InsurancePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Step 1 */}
             <div className="relative">
-              <div className="absolute top-0 left-6 h-full w-0.5 bg-[#8F6ED5]/30 hidden md:block"></div>
               <div className="flex flex-col items-center z-10 relative">
                 <div className="bg-[#8F6ED5] text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">1</div>
                 <h3 className="text-xl font-bold text-[#1A1A1A] mb-3 text-center">Консультация</h3>
@@ -229,7 +336,6 @@ export default function InsurancePage() {
 
             {/* Step 2 */}
             <div className="relative">
-              <div className="absolute top-0 left-6 h-full w-0.5 bg-[#8F6ED5]/30 hidden md:block"></div>
               <div className="flex flex-col items-center z-10 relative">
                 <div className="bg-[#8F6ED5] text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">2</div>
                 <h3 className="text-xl font-bold text-[#1A1A1A] mb-3 text-center">Подбор решения</h3>
@@ -239,7 +345,6 @@ export default function InsurancePage() {
 
             {/* Step 3 */}
             <div className="relative">
-              <div className="absolute top-0 left-6 h-full w-0.5 bg-[#8F6ED5]/30 hidden md:block"></div>
               <div className="flex flex-col items-center z-10 relative">
                 <div className="bg-[#8F6ED5] text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">3</div>
                 <h3 className="text-xl font-bold text-[#1A1A1A] mb-3 text-center">Оформление</h3>
@@ -334,74 +439,22 @@ export default function InsurancePage() {
       </section>
 
       {/* CTA/Contact Section */}
-      <section id="contact" className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#8F6ED5]/20 blur-[100px] z-0"></div>
-        <div className="absolute inset-0 bg-grid-purple/[0.02] bg-[length:20px_20px] z-0"></div>
-        
-        <div className="container max-w-6xl mx-auto px-4 relative z-10">
-          <div className="bg-gradient-to-br from-white to-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-xl">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-6">
-                  Получите индивидуальное предложение для вашего бизнеса
-                </h2>
-                <p className="text-[#6B6B6B] mb-8">
-                  Оставьте заявку, и наш специалист свяжется с вами в течение 15 минут для консультации и подбора оптимального страхового решения.
-                </p>
-                
-                <div className="flex flex-col md:flex-row gap-4 mb-8">
-                  <Link href="https://wa.me/77xxxxxxxx" className="flex items-center justify-center px-6 py-3 rounded-full bg-[#25D366] text-white font-medium transition-all shadow-lg shadow-green-500/20 hover:shadow-green-500/40">
-                    <MessageCircle className="h-5 w-5 mr-2" />
-                    Написать в WhatsApp
-                  </Link>
-                  
-                  <Link href="mailto:info@pluse.kz" className="flex items-center justify-center px-6 py-3 rounded-full bg-gray-800 text-white font-medium transition-all hover:bg-gray-700">
-                    <Mail className="h-5 w-5 mr-2" />
-                    info@pluse.kz
-                  </Link>
+      <section className="py-20 relative overflow-hidden bg-[#181C36]">
+        {/* Геометрические элементы на фоне */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none select-none">
+          <div className="absolute top-0 right-0 w-[800px] h-[600px] transform rotate-[-10deg] translate-x-1/4 translate-y-[-10%] bg-gradient-to-br from-[#8F6ED5] via-[#6B4FD5] to-[#FDFCFB] opacity-40 rounded-[40px] transition-all duration-1000"></div>
+          <div className="absolute top-1/3 right-0 w-[600px] h-[400px] transform rotate-[-15deg] translate-x-1/3 bg-gradient-to-br from-[#7F5EC5] via-[#5B3FD5] to-[#FDFCFB] opacity-30 rounded-[40px] transition-all duration-1000"></div>
+          <div className="absolute bottom-10 right-1/4 w-[300px] h-[200px] transform rotate-[-5deg] bg-gradient-to-br from-[#6B4FD5] via-[#4B2FD5] to-[#FDFCFB] opacity-20 rounded-[40px] transition-all duration-1000"></div>
                 </div>
+        <div className="container max-w-7xl mx-auto px-4 relative z-10">
+          <div className="flex flex-col md:flex-row gap-12 items-center">
+            <div className="w-full md:w-1/2">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Получите индивидуальное предложение для вашего бизнеса</h2>
+              <p className="text-lg text-white/80 mb-2">Оставьте заявку, и наш специалист свяжется с вами</p>
+              <p className="text-lg text-white/80 mb-8">в течение 15 минут для консультации и подбора оптимального страхового решения.</p>
               </div>
-              
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-100">
-                <h3 className="text-xl font-bold text-[#1A1A1A] mb-4">Оставить заявку</h3>
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-4">
-                    <label htmlFor="name" className="block text-[#6B6B6B] mb-2 text-sm">Ваше имя</label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-3 text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#8F6ED5] focus:border-transparent"
-                      placeholder="Введите ваше имя"
-                      required
-                    />
-                  </div>
-                  
-                  <div className="mb-6">
-                    <label htmlFor="phone" className="block text-[#6B6B6B] mb-2 text-sm">Номер телефона</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full bg-gray-100 border border-gray-200 rounded-lg px-4 py-3 text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#8F6ED5] focus:border-transparent"
-                      placeholder="+7 (___) ___-__-__"
-                      required
-                    />
-                  </div>
-                  
-                  <button type="submit" className="w-full bg-gradient-to-r from-[#8F6ED5] to-[#7F5EC5] hover:from-[#7F5EC5] hover:to-[#6F4DB5] text-white font-medium py-3 px-6 rounded-lg shadow-lg shadow-[#8F6ED5]/20 hover:shadow-[#8F6ED5]/40 transition-all">
-                    Отправить заявку
-                  </button>
-                  
-                  <p className="text-[#6B6B6B] text-sm mt-4 text-center">
-                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                  </p>
-                </form>
-              </div>
+            <div className="w-full md:w-1/2 flex justify-center">
+              <InsuranceForm />
             </div>
           </div>
         </div>

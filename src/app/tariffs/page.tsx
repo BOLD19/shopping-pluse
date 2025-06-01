@@ -39,13 +39,14 @@ export default function TariffsPage() {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {/* Basic Plan */}
             <div className="flex flex-col rounded-3xl bg-white p-8 shadow-lg ring-1 ring-gray-200 hover:shadow-xl transition-all duration-300">
+              <div className="flex-1 flex flex-col">
               <div className="flex items-center justify-between gap-x-4">
                 <h3 className="text-lg font-semibold leading-8 text-[#1A1A1A]">Базовый</h3>
                 <p className="rounded-full bg-[#F0F4FF] px-2.5 py-1 text-xs font-semibold text-[#8F6ED5]">Для начинающих</p>
               </div>
-              <p className="mt-4 text-sm leading-6 text-[#6B6B6B]">Идеально для малого бизнеса и начинающих предпринимателей.</p>
+                <p className="mt-4 text-sm leading-6 text-[#6B6B6B]">Идеально для малого бизнеса<br className='hidden md:block' />и начинающих предпринимателей.</p>
               <p className="mt-6 flex items-baseline gap-x-1">
-                <span className="text-4xl font-bold tracking-tight text-[#1A1A1A]">2 900 ₽</span>
+                  <span className="text-4xl font-bold tracking-tight text-[#1A1A1A]">2 900 ₸</span>
                 <span className="text-sm font-semibold leading-6 text-[#6B6B6B]">/мес</span>
               </p>
               <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-[#4A4A4A]">
@@ -66,23 +67,29 @@ export default function TariffsPage() {
                   <span>1 юридическое лицо</span>
                 </li>
               </ul>
+              </div>
+              <div className="mt-auto">
               <Link
-                href="/contact"
+                href={`https://wa.me/77474288095?text=${encodeURIComponent('Здравствуйте! Хочу подключить базовый тариф для обслуживания бизнеса')}`}
                 className="mt-8 block rounded-2xl bg-[#8F6ED5] px-3 py-4 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#7C5CBF] transition-all duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Выбрать план
               </Link>
+              </div>
             </div>
 
             {/* Growth Plan */}
             <div className="flex flex-col rounded-3xl bg-white p-8 shadow-lg ring-1 ring-[#8F6ED5] hover:shadow-xl transition-all duration-300">
+              <div className="flex-1 flex flex-col">
               <div className="flex items-center justify-between gap-x-4">
                 <h3 className="text-lg font-semibold leading-8 text-[#1A1A1A]">Рост</h3>
                 <p className="rounded-full bg-[#F0F4FF] px-2.5 py-1 text-xs font-semibold text-[#8F6ED5]">Популярный</p>
               </div>
-              <p className="mt-4 text-sm leading-6 text-[#6B6B6B]">Оптимальный выбор для растущего бизнеса.</p>
+                <p className="mt-4 text-sm leading-6 text-[#6B6B6B]">Оптимальный выбор<br className='hidden md:block' />для растущего бизнеса.</p>
               <p className="mt-6 flex items-baseline gap-x-1">
-                <span className="text-4xl font-bold tracking-tight text-[#1A1A1A]">7 500 ₽</span>
+                  <span className="text-4xl font-bold tracking-tight text-[#1A1A1A]">7 500 ₸</span>
                 <span className="text-sm font-semibold leading-6 text-[#6B6B6B]">/мес</span>
               </p>
               <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-[#4A4A4A]">
@@ -107,23 +114,29 @@ export default function TariffsPage() {
                   <span>Интеграция с CRM</span>
                 </li>
               </ul>
+              </div>
+              <div className="mt-auto">
               <Link
-                href="/contact"
+                href={`https://wa.me/77474288095?text=${encodeURIComponent('Здравствуйте! Хочу подключить тариф "Рост" для обслуживания бизнеса')}`}
                 className="mt-8 block rounded-2xl bg-[#8F6ED5] px-3 py-4 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#7C5CBF] transition-all duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Выбрать план
               </Link>
+              </div>
             </div>
 
             {/* Enterprise Plan */}
             <div className="flex flex-col rounded-3xl bg-white p-8 shadow-lg ring-1 ring-gray-200 hover:shadow-xl transition-all duration-300">
+              <div className="flex-1 flex flex-col">
               <div className="flex items-center justify-between gap-x-4">
                 <h3 className="text-lg font-semibold leading-8 text-[#1A1A1A]">Бизнес</h3>
                 <p className="rounded-full bg-[#F0F4FF] px-2.5 py-1 text-xs font-semibold text-[#8F6ED5]">Премиум</p>
               </div>
               <p className="mt-4 text-sm leading-6 text-[#6B6B6B]">Для крупного бизнеса с высоким объемом операций.</p>
               <p className="mt-6 flex items-baseline gap-x-1">
-                <span className="text-4xl font-bold tracking-tight text-[#1A1A1A]">19 900 ₽</span>
+                  <span className="text-4xl font-bold tracking-tight text-[#1A1A1A]">19 900 ₸</span>
                 <span className="text-sm font-semibold leading-6 text-[#6B6B6B]">/мес</span>
               </p>
               <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-[#4A4A4A]">
@@ -152,12 +165,17 @@ export default function TariffsPage() {
                   <span>Индивидуальные настройки</span>
                 </li>
               </ul>
+              </div>
+              <div className="mt-auto">
               <Link
-                href="/contact"
+                href={`https://wa.me/77474288095?text=${encodeURIComponent('Здравствуйте! Хочу подключить тариф "Бизнес" для обслуживания бизнеса')}`}
                 className="mt-8 block rounded-2xl bg-[#8F6ED5] px-3 py-4 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#7C5CBF] transition-all duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Выбрать план
               </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -211,10 +229,12 @@ export default function TariffsPage() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
-                href="/contact"
+                href={`https://wa.me/77474288095?text=${encodeURIComponent('Здравствуйте! Хочу узнать подробнее про обслуживание бизнеса у вас.')}`}
                 className="bg-[#8F6ED5] text-white px-8 py-4 rounded-2xl text-base font-medium shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Связаться с нами
+                Записаться в список ожидания
               </Link>
               <Link
                 href="/"

@@ -37,16 +37,20 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { title: 'Рассрочка (BNPL)', description: 'Предложите клиентам покупки в рассрочку', href: '/bnpl', icon: '💳' },
-              { title: 'Pluse.Shopping', description: 'Интернет-магазин под ключ за 1 день', href: '/shopping', icon: '🛍' },
-              { title: 'Регистрация ТОО', description: 'Зарегистрируйте ТОО онлайн', href: '/register-company', icon: '📋' },
+              { title: 'Рассрочка (BNPL)', description: 'Предложите клиентам покупки в рассрочку', href: '/bnpl', icon: '💳', highlight: true },
+              { title: 'Pluse.Shopping', description: 'Интернет-магазин под ключ за 1 день', href: '/shopping', icon: '🛍', soon: true },
+              { title: 'Регистрация ТОО', description: 'Зарегистрируйте ТОО онлайн', href: '/register-company', icon: '📋', soon: true },
               { title: 'Страхование', description: 'Страховые продукты для бизнеса', href: '/insurance', icon: '🛡️' },
               { title: 'Бухгалтерия', description: 'Скоро: автоматизация бухгалтерии', href: '/accounting', icon: '🧾', soon: true },
-              { title: 'Открытие счета', description: 'Расчетный счет за 5 минут', href: '/account', icon: '💼' },
-              { title: 'Бизнес карта', description: 'Удобная карта с кэшбэком', href: '/card', icon: '💰' },
-              { title: 'Мобильный и интернет-банк', description: 'Управление финансами 24/7', href: '/banking', icon: '📱' },
+              { title: 'Открытие счета', description: 'Расчетный счет за 5 минут', href: '/account', icon: '💼', soon: true },
+              { title: 'Бизнес карта', description: 'Удобная карта с кэшбэком', href: '/card', icon: '💰', soon: true },
+              { title: 'Мобильный и интернет-банк', description: 'Управление финансами 24/7', href: '/banking', icon: '📱', soon: true },
             ].map((service, index) => (
-              <Link key={index} href={service.href} className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+              <Link
+                key={index}
+                href={service.href}
+                className={`bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300${service.highlight ? ' cursor-pointer' : ''}`}
+              >
                 <div className="text-3xl mb-4">{service.icon}</div>
                 <div className="flex items-center gap-2 mb-2">
                   <h3 className="text-xl font-semibold text-[#1A1A1A]">

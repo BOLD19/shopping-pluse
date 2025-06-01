@@ -21,12 +21,20 @@ import {
   ArrowRight,
   CheckCircle2
 } from 'lucide-react'
+import BnplConditionsBlock from '@/components/bnpl/BnplConditionsBlock'
+import BnplBusinessSimplificationBlock from '@/components/bnpl/BnplBusinessSimplificationBlock'
+import AccountConditionsBlock from '@/components/AccountConditionsBlock'
 
 export default function AccountPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [formData, setFormData] = useState({
     phone: ''
   })
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+  const [success, setSuccess] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -35,10 +43,30 @@ export default function AccountPage() {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setFormData({ phone: '' })
+    setLoading(true)
+    setError('')
+    try {
+      const res = await fetch('/api/telegram-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone }),
+      })
+      if (res.ok) {
+        setSuccess(true)
+        setName('')
+        setPhone('')
+        setTimeout(() => setSuccess(false), 3000)
+      } else {
+        const data = await res.json()
+        setError(data.error || 'Ошибка отправки')
+      }
+    } catch (e) {
+      setError('Ошибка отправки')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const toggleFaq = (index: number) => {
@@ -65,74 +93,33 @@ export default function AccountPage() {
   ]
 
   return (
-    <div className="w-full">
+    <div className="min-h-screen bg-white">
+      <main className="flex-1">
       {/* Hero Section */}
       <section className="relative w-full px-4 py-20 md:py-32 flex flex-col items-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#F0F4FF] via-white to-white z-0"></div>
         <div className="absolute top-0 left-0 w-full h-full bg-grid-purple/[0.02] bg-[length:20px_20px] z-0"></div>
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#8F6ED5]/30 blur-[100px] z-0"></div>
-        
         <div className="container relative z-10 flex flex-col lg:flex-row items-center max-w-6xl mx-auto">
           <div className="flex-1 text-center lg:text-left mb-10 lg:mb-0">
-            <h1 className="text-4xl md:text-6xl font-bold text-[#1A1A1A] mb-6">
-              Откройте счёт для бизнеса за 1 день — <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8F6ED5] to-lime-500">полностью онлайн</span>
+              <h1 className="text-3xl md:text-5xl font-bold text-[#1A1A1A] mb-6">
+                Откройте счёт для бизнеса за 1 день — полностью онлайн
             </h1>
-            
             <p className="text-lg md:text-xl text-[#6B6B6B] max-w-2xl mb-10">
               Без визита в банк, всё через приложение Pluse. Начните пользоваться счётом уже сегодня.
             </p>
-            
-            <Link href="#contact" className="inline-flex items-center bg-gradient-to-r from-[#8F6ED5] to-[#7F5EC5] hover:from-[#7F5EC5] hover:to-[#6F4DB5] text-white px-8 py-4 rounded-2xl text-lg font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all">
-              Открыть счёт
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+              <a
+                href="https://wa.me/77474288095?text=Здравствуйте!%20Хочу%20открыть%20бизнес-счет%20в%20Pluse.kz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center relative overflow-hidden bg-gradient-to-r from-[#8F6ED5] via-[#7F5EC5] to-[#8F6ED5] hover:from-[#7F5EC5] hover:via-[#6F4DB5] hover:to-[#7F5EC5] text-white px-8 py-4 rounded-2xl text-lg font-medium shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent"
+              >
+                Записаться в список ожидания
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
           </div>
-
-          <div className="flex-1 relative">
-            <div className="relative w-full max-w-md mx-auto">
-              {/* 3D Elements */}
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-lime-400/20 to-lime-600/20 rounded-2xl transform rotate-12 backdrop-blur-xl"></div>
-              <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-gradient-to-br from-[#8F6ED5]/20 to-[#7F5EC5]/20 rounded-2xl transform -rotate-12 backdrop-blur-xl"></div>
-              
-              {/* Main Device Frame */}
-              <div className="relative bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-xl">
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-gray-100 rounded-full"></div>
-                <div className="mb-8 text-center">
-                  <Shield className="w-16 h-16 mx-auto mb-4 text-lime-500" />
-                  <h3 className="text-xl font-bold text-[#1A1A1A]">Счёт открыт!</h3>
-                  <p className="text-[#6B6B6B] text-sm">Ваши реквизиты готовы</p>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="bg-[#F0F4FF] rounded-xl p-4 border border-gray-100">
-                    <div className="flex items-center">
-                      <CreditCard className="w-6 h-6 text-[#8F6ED5] mr-3" />
-                      <div>
-                        <p className="text-[#6B6B6B] text-xs">Номер счёта</p>
-                        <p className="text-[#1A1A1A] font-mono">KZ86 9650 0000 0000 0000</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-[#F0F4FF] rounded-xl p-4 border border-gray-100">
-                    <div className="flex items-center">
-                      <Building2 className="w-6 h-6 text-[#8F6ED5] mr-3" />
-                      <div>
-                        <p className="text-[#6B6B6B] text-xs">Компания</p>
-                        <p className="text-[#1A1A1A]">ТОО &quot;Ваша компания&quot;</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-8 flex justify-center">
-                  <span className="inline-flex items-center text-sm text-lime-600">
-                    <CheckCircle2 className="w-5 h-5 mr-2" />
-                    Готово к использованию
-                  </span>
-                </div>
-              </div>
-            </div>
+            <div className="flex-1 flex justify-center">
+              <Image src="/account-hero.png" alt="Открыть счёт" width={420} height={420} className="object-contain" />
           </div>
         </div>
       </section>
@@ -224,11 +211,11 @@ export default function AccountPage() {
               <div className="pl-16">
                 <ul className="space-y-2">
                   <li className="flex items-center text-[#6B6B6B]">
-                    <CheckCircle2 className="h-4 w-4 text-lime-600 mr-2" />
+                      <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
                     <span>Автоматический расчёт налогов</span>
                   </li>
                   <li className="flex items-center text-[#6B6B6B]">
-                    <CheckCircle2 className="h-4 w-4 text-lime-600 mr-2" />
+                      <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
                     <span>Электронная отчётность</span>
                   </li>
                 </ul>
@@ -249,11 +236,11 @@ export default function AccountPage() {
               <div className="pl-16">
                 <ul className="space-y-2">
                   <li className="flex items-center text-[#6B6B6B]">
-                    <CheckCircle2 className="h-4 w-4 text-lime-600 mr-2" />
+                      <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
                     <span>Мгновенное решение по рассрочке</span>
                   </li>
                   <li className="flex items-center text-[#6B6B6B]">
-                    <CheckCircle2 className="h-4 w-4 text-lime-600 mr-2" />
+                      <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
                     <span>Увеличение среднего чека</span>
                   </li>
                 </ul>
@@ -274,11 +261,11 @@ export default function AccountPage() {
               <div className="pl-16">
                 <ul className="space-y-2">
                   <li className="flex items-center text-[#6B6B6B]">
-                    <CheckCircle2 className="h-4 w-4 text-lime-600 mr-2" />
+                      <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
                     <span>Страхование имущества</span>
                   </li>
                   <li className="flex items-center text-[#6B6B6B]">
-                    <CheckCircle2 className="h-4 w-4 text-lime-600 mr-2" />
+                      <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
                     <span>Страхование ответственности</span>
                   </li>
                 </ul>
@@ -299,11 +286,11 @@ export default function AccountPage() {
               <div className="pl-16">
                 <ul className="space-y-2">
                   <li className="flex items-center text-[#6B6B6B]">
-                    <CheckCircle2 className="h-4 w-4 text-lime-600 mr-2" />
+                      <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
                     <span>Готовые шаблоны</span>
                   </li>
                   <li className="flex items-center text-[#6B6B6B]">
-                    <CheckCircle2 className="h-4 w-4 text-lime-600 mr-2" />
+                      <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
                     <span>Интеграция с маркетплейсами</span>
                   </li>
                 </ul>
@@ -323,7 +310,6 @@ export default function AccountPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Step 1 */}
             <div className="relative">
-              <div className="absolute top-0 left-6 h-full w-0.5 bg-[#8F6ED5]/30 hidden md:block"></div>
               <div className="flex flex-col items-center z-10 relative">
                 <div className="bg-[#8F6ED5] text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">1</div>
                 <h3 className="text-xl font-bold text-[#1A1A1A] mb-3 text-center">Скачайте приложение</h3>
@@ -333,7 +319,6 @@ export default function AccountPage() {
 
             {/* Step 2 */}
             <div className="relative">
-              <div className="absolute top-0 left-6 h-full w-0.5 bg-[#8F6ED5]/30 hidden md:block"></div>
               <div className="flex flex-col items-center z-10 relative">
                 <div className="bg-[#8F6ED5] text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">2</div>
                 <h3 className="text-xl font-bold text-[#1A1A1A] mb-3 text-center">Пройдите регистрацию</h3>
@@ -353,13 +338,15 @@ export default function AccountPage() {
         </div>
       </section>
 
+        {/* Блок: Мы делаем бизнес проще — честно и прозрачно */}
+        <BnplBusinessSimplificationBlock />
+
       {/* FAQ Section */}
       <section className="py-20 bg-[#F0F4FF]">
         <div className="container max-w-3xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] text-center mb-16">
             Часто задаваемые вопросы
           </h2>
-
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div
@@ -377,7 +364,6 @@ export default function AccountPage() {
                     <ChevronDown className="h-5 w-5 text-[#6B6B6B]" />
                   )}
                 </button>
-                
                 {openFaq === index && (
                   <div className="px-6 pb-4">
                     <p className="text-[#6B6B6B]">{faq.answer}</p>
@@ -389,65 +375,9 @@ export default function AccountPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="contact" className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#8F6ED5]/20 blur-[100px] z-0"></div>
-        <div className="absolute inset-0 bg-grid-purple/[0.02] bg-[length:20px_20px] z-0"></div>
-        
-        <div className="container max-w-6xl mx-auto px-4 relative z-10">
-          <div className="bg-gradient-to-br from-white to-[#F0F4FF] rounded-3xl p-8 md:p-12 border border-gray-100 shadow-xl">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] mb-6">
-                  Начните прямо сейчас — откройте счёт бесплатно
-                </h2>
-                <p className="text-[#6B6B6B] mb-8">
-                  Оставьте заявку, и мы поможем вам открыть счёт за один день. Консультация бесплатна.
-                </p>
-                
-                <div className="flex flex-col md:flex-row gap-4">
-                  <Link href="https://apps.apple.com" className="flex items-center justify-center px-6 py-3 rounded-xl bg-[#1A1A1A] text-white font-medium transition-all hover:bg-[#2A2A2A]">
-                    <Download className="h-5 w-5 mr-2" />
-                    App Store
-                  </Link>
-                  
-                  <Link href="https://play.google.com" className="flex items-center justify-center px-6 py-3 rounded-xl bg-[#1A1A1A] text-white font-medium transition-all hover:bg-[#2A2A2A]">
-                    <Download className="h-5 w-5 mr-2" />
-                    Google Play
-                  </Link>
-                </div>
-              </div>
-              
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-100 shadow-lg">
-                <h3 className="text-xl font-bold text-[#1A1A1A] mb-4">Оставить заявку</h3>
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-6">
-                    <label htmlFor="phone" className="block text-[#6B6B6B] mb-2 text-sm">Номер телефона</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-[#1A1A1A] focus:outline-none focus:ring-2 focus:ring-[#8F6ED5] focus:border-transparent"
-                      placeholder="+7 (___) ___-__-__"
-                      required
-                    />
-                  </div>
-                  
-                  <button type="submit" className="w-full bg-gradient-to-r from-[#8F6ED5] to-[#7F5EC5] hover:from-[#7F5EC5] hover:to-[#6F4DB5] text-white font-medium py-3 px-6 rounded-lg shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all">
-                    Открыть счёт
-                  </button>
-                  
-                  <p className="text-[#6B6B6B] text-sm mt-4 text-center">
-                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                  </p>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        {/* Ознакомиться с условиями (BNPL) */}
+        <AccountConditionsBlock />
+      </main>
     </div>
   )
 } 

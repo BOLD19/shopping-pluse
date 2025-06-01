@@ -1,35 +1,101 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 
 export default function CabinetPage() {
+  const [formData, setFormData] = useState({
+    login: '',
+    password: ''
+  })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // TODO: Implement proper form submission logic
+    alert('Спасибо! Мы свяжемся с вами в ближайшее время.')
+    setFormData({ login: '', password: '' })
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero section */}
-      <div className="relative isolate pt-32 pb-20">
-        {/* Radial gradient background */}
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_30%,_var(--tw-gradient-stops))] from-[#F0F4FF] via-white to-white opacity-90"></div>
+    <div className="min-h-screen bg-[#F0F4FF] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-2xl shadow-lg">
+        <div>
+          <h2 className="mt-6 text-center text-3xl font-bold text-[#1A1A1A]">
+            Вход в личный кабинет
+          </h2>
+          <p className="mt-2 text-center text-sm text-[#6B6B6B]">
+            Введите данные для входа в систему
+          </p>
+        </div>
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <div className="rounded-md shadow-sm space-y-4">
+            <div>
+              <label htmlFor="login" className="block text-sm font-medium text-[#4A4A4A] mb-1">
+                Логин
+              </label>
+              <input
+                id="login"
+                name="login"
+                type="text"
+                required
+                className="appearance-none relative block w-full px-4 py-3 border border-gray-200 rounded-xl placeholder-gray-400 text-[#1A1A1A] focus:outline-none focus:ring-[#8F6ED5] focus:border-[#8F6ED5] focus:z-10 sm:text-sm"
+                placeholder="Введите логин"
+                value={formData.login}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-[#4A4A4A] mb-1">
+                Пароль
+              </label>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                required
+                className="appearance-none relative block w-full px-4 py-3 border border-gray-200 rounded-xl placeholder-gray-400 text-[#1A1A1A] focus:outline-none focus:ring-[#8F6ED5] focus:border-[#8F6ED5] focus:z-10 sm:text-sm"
+                placeholder="Введите пароль"
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          <div>
+            <button
+              type="submit"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent rounded-xl text-base font-medium text-white bg-[#8F6ED5] hover:bg-[#7F5EC5] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8F6ED5] transition-all duration-300"
+            >
+              Войти
+            </button>
         </div>
 
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-[#1A1A1A] sm:text-6xl">
-              Личный кабинет
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-[#4A4A4A]">
-              Управляйте своим аккаунтом, счетами и сервисами в одном месте.
-            </p>
-            <div className="mt-10">
+          <div className="flex items-center justify-between">
+            <div className="text-sm">
+              <Link
+                href="#"
+                className="font-medium text-[#8F6ED5] hover:text-[#7F5EC5] transition-all duration-300"
+              >
+                Забыли пароль?
+              </Link>
+            </div>
+            <div className="text-sm">
               <Link
                 href="/"
-                className="bg-[#8F6ED5] text-white px-8 py-4 rounded-2xl text-base font-medium shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300"
+                className="font-medium text-[#8F6ED5] hover:text-[#7F5EC5] transition-all duration-300"
               >
-                Вернуться на главную
+                На главную
               </Link>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   )

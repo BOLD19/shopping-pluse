@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import React from 'react'
 import { useState } from 'react'
 import { 
   FileText, 
@@ -23,8 +24,10 @@ import {
   Users, 
   ChevronDown, 
   ChevronUp, 
-  Send
+  Send,
+  MessageCircle
 } from 'lucide-react'
+import BnplConditionsBlock from '../../components/BnplConditionsBlock'
 
 export default function RegisterCompanyPage() {
   const [formData, setFormData] = useState({
@@ -42,7 +45,8 @@ export default function RegisterCompanyPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
+    // TODO: Implement proper form submission logic
+    alert('Спасибо! Мы свяжемся с вами в ближайшее время.')
     setFormData({ phone: '' })
   }
 
@@ -72,87 +76,45 @@ export default function RegisterCompanyPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero section */}
-      <div className="relative isolate overflow-hidden pt-32 pb-24">
-        {/* Radial gradient background */}
-        <div className="absolute inset-0 -z-10 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_30%,_var(--tw-gradient-stops))] from-[#F0F4FF] via-white to-white opacity-90"></div>
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#181C36] h-[568px] py-8 sm:py-0">
+        {/* Геометрические элементы */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none select-none">
+          <div className="absolute top-0 right-0 w-[800px] h-[600px] transform rotate-[-10deg] translate-x-1/4 translate-y-[-10%] bg-gradient-to-br from-[#8F6ED5] via-[#6B4FD5] to-[#FDFCFB] opacity-40 rounded-[40px] transition-all duration-1000"></div>
+          <div className="absolute top-1/3 right-0 w-[600px] h-[400px] transform rotate-[-15deg] translate-x-1/3 bg-gradient-to-br from-[#7F5EC5] via-[#5B3FD5] to-[#FDFCFB] opacity-30 rounded-[40px] transition-all duration-1000"></div>
+          <div className="absolute bottom-10 right-1/4 w-[300px] h-[200px] transform rotate-[-5deg] bg-gradient-to-br from-[#6B4FD5] via-[#4B2FD5] to-[#FDFCFB] opacity-20 rounded-[40px] transition-all duration-1000"></div>
         </div>
-        {/* Scattered dots pattern */}
-        <div className="absolute inset-0 -z-10 opacity-30">
-          <svg className="absolute left-[calc(50%-25rem)] top-0 h-[64rem] w-[128rem] stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)]"
-            aria-hidden="true">
-            <defs>
-              <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
-                <circle cx="20" cy="20" r="1" fill="#8F6ED5" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" strokeWidth="0" fill="url(#grid-pattern)" />
-          </svg>
-        </div>
-
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl font-bold tracking-tight text-[#1A1A1A] sm:text-5xl lg:text-6xl leading-tight">
-                Регистрация ТОО <span className="text-[#8F6ED5]">бесплатно</span> за 1 день
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full relative z-10 flex items-center min-h-[80vh] sm:min-h-[60vh]">
+          <div className="w-full md:max-w-[800px] lg:max-w-[900px] text-left mt-12">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight text-left break-words px-4">
+              Регистрация ТОО<br />
+              <span className="text-white">бесплатно за 1 день</span>
               </h1>
-              <p className="mt-6 text-lg text-[#6B6B6B] leading-relaxed">
+            <div className="text-sm sm:text-lg text-white mb-8 max-w-lg text-left px-4">
                 Мы подготовим документы, подберем налоговый режим и откроем бизнес за вас — быстро и надёжно
-              </p>
-              <div className="mt-10">
-                <a
-                  href="#contact-form"
-                  className="inline-flex items-center bg-[#8F6ED5] text-white px-8 py-4 rounded-2xl text-base font-medium shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300"
-                >
-                  Оставить заявку
-                  <svg className="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
-                  </svg>
-                </a>
-              </div>
             </div>
-            <div className="relative flex justify-center lg:justify-end">
-              <div className="w-full max-w-md">
-                {/* 3D Document Illustration */}
-                <div className="relative">
-                  {/* Purple glow effect */}
-                  <div className="absolute -z-10 inset-0 bg-[#8F6ED5] opacity-10 blur-3xl rounded-full transform -translate-y-1/4"></div>
-                  
-                  <div className="relative flex justify-center">
-                    <div className="w-72 h-72 relative">
-                      {/* Main Document */}
-                      <div className="absolute top-6 left-6 w-60 h-64 bg-white rounded-lg shadow-xl transform rotate-6 border-t-4 border-[#8F6ED5]">
-                        <div className="absolute top-4 left-4 right-4 h-4 bg-[#F0F4FF] rounded"></div>
-                        <div className="absolute top-12 left-4 right-4 h-4 bg-[#F0F4FF] rounded"></div>
-                        <div className="absolute top-20 left-4 right-16 h-4 bg-[#F0F4FF] rounded"></div>
-                        <div className="absolute top-28 left-4 right-8 h-4 bg-[#F0F4FF] rounded"></div>
-                        <div className="absolute top-36 left-4 right-20 h-4 bg-[#F0F4FF] rounded"></div>
-                        <div className="absolute top-44 left-4 right-4 h-12 bg-[#E0FF4F] rounded-lg flex items-center justify-center">
-                          <div className="font-bold text-[#1A1A1A] text-xs">ТОО &quot;PLUSE&quot;</div>
-                        </div>
-                      </div>
-                      
-                      {/* Second Document */}
-                      <div className="absolute top-10 left-10 w-60 h-64 bg-white rounded-lg shadow-xl transform -rotate-3 border-t-4 border-[#E0FF4F]">
-                        <div className="absolute top-4 left-4 w-8 h-8 bg-[#E0FF4F] rounded-full flex items-center justify-center">
-                          <Check className="w-5 h-5 text-[#1A1A1A]" />
-                        </div>
-                        <div className="absolute top-4 left-16 right-4 h-4 bg-[#F9F9F9] rounded"></div>
-                        <div className="absolute top-12 left-4 right-4 h-4 bg-[#F9F9F9] rounded"></div>
-                        <div className="absolute top-20 left-4 right-16 h-4 bg-[#F9F9F9] rounded"></div>
-                        <div className="absolute top-28 left-4 right-24 h-4 bg-[#F9F9F9] rounded"></div>
-                        <div className="absolute bottom-4 left-4 w-24 h-8 bg-[#8F6ED5] rounded flex items-center justify-center">
-                          <div className="font-medium text-white text-xs">ПОДТВЕРЖДЕНО</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="flex gap-4 px-4">
+              <a
+                href="https://wa.me/77474288095?text=Здравствуйте!%20Хочу%20открыть%20ТОО,%20нужна%20консультация."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-white text-[#8F6ED5] border-2 border-[#8F6ED5] px-4 py-3 text-sm rounded-lg sm:px-8 sm:py-4 sm:text-base sm:rounded-xl hover:bg-[#F0F4FF] transition-all duration-200"
+              >
+                <MessageCircle size={20} />
+                Консультация
+              </a>
+                <a
+                href="https://wa.me/77474288095?text=Здравствуйте!%20Хочу%20открыть%20ТОО%20через%20вас.%20Какой%20следующий%20шаг?"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#8F6ED5] text-white px-4 py-3 text-sm rounded-lg sm:px-8 sm:py-4 sm:text-base sm:rounded-xl hover:bg-[#7F5EC5] transition-all duration-200"
+              >
+                <MessageCircle size={20} />
+                Открыть компанию
+              </a>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Что входит в услугу */}
       <div className="py-24 sm:py-32 bg-white">
@@ -162,47 +124,52 @@ export default function RegisterCompanyPage() {
               Что входит в услугу
             </h2>
             <p className="mt-6 text-lg text-[#6B6B6B]">
-              Полностью берем на себя процесс регистрации ТОО, от подготовки документов до постановки на учет
+              Полностью берем на себя процесс регистрации ТОО,<br />от подготовки документов до постановки на учет
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {[
               {
                 icon: <FileText className="h-6 w-6 text-[#8F6ED5]" />,
-                title: 'Подготовим все документы',
-                description: 'Устав, учредительный договор и все заявления'
+                title: 'Подготовим\nвсе документы',
+                description: 'Устав, учредительный\nдоговор и все заявления'
               },
               {
                 icon: <BarChart className="h-6 w-6 text-[#8F6ED5]" />,
-                title: "Выберем ОКЭД и налоговый режим",
-                description: 'Оптимальный вариант для вашего бизнеса'
+                title: 'Выберем ОКЭД\nи налоговый режим',
+                description: 'Оптимальный вариант\nдля вашего бизнеса'
               },
               {
                 icon: <CreditCard className="h-6 w-6 text-[#8F6ED5]" />,
-                title: "Поставим ТОО на учёт по НДС",
-                description: 'Если это необходимо для вашего бизнеса'
-              },
-              {
-                icon: <Globe className="h-6 w-6 text-[#8F6ED5]" />,
-                title: "Поможем иностранным резидентам",
-                description: 'Полное сопровождение для нерезидентов РК'
+                title: 'Поставим ТОО\nна учёт по НДС',
+                description: 'Если это необходимо\nдля вашего бизнеса'
               },
               {
                 icon: <Calculator className="h-6 w-6 text-[#8F6ED5]" />,
-                title: "Возьмем на себя бухгалтерию",
-                description: 'Первый месяц бухгалтерия бесплатно'
+                title: 'Закроем вопросы\nпо налогам',
+                description: 'Первый месяц\nбухгалтерия бесплатно'
               },
             ].map((item, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+              <div key={index} className="bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 max-w-xs w-full mx-auto flex flex-col items-center text-center">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F0F4FF] mb-4">
                   {item.icon}
                 </div>
                 <h3 className="text-lg font-medium text-[#1A1A1A] mb-2">
-                  {item.title}
+                  {item.title.split('\n').map((line, i) => (
+                    <React.Fragment key={i}>
+                      {line}
+                      {i !== item.title.split('\n').length - 1 && <br />}
+                    </React.Fragment>
+                  ))}
                 </h3>
                 <p className="text-sm text-[#6B6B6B]">
-                  {item.description}
+                  {item.description.split('\n').map((line, i) => (
+                    <React.Fragment key={i}>
+                      {line}
+                      {i !== item.description.split('\n').length - 1 && <br />}
+                    </React.Fragment>
+                  ))}
                 </p>
               </div>
             ))}
@@ -218,7 +185,7 @@ export default function RegisterCompanyPage() {
               Вы получите
             </h2>
             <p className="mt-6 text-lg text-[#6B6B6B]">
-              Полноценный рабочий бизнес с поддержкой на каждом этапе, а не просто документы
+              Полноценный рабочий бизнес с поддержкой на каждом этапе,<br />а не просто документы
             </p>
           </div>
 
@@ -376,62 +343,6 @@ export default function RegisterCompanyPage() {
         </div>
       </div>
 
-      {/* Для кого подойдёт */}
-      <div className="py-24 sm:py-32 bg-[#FDFCFB]">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-[#1A1A1A] sm:text-4xl">
-              Для кого подойдёт
-            </h2>
-            <p className="mt-6 text-lg text-[#6B6B6B]">
-              Наш сервис создан для предпринимателей, которые ценят время и хотят быстро запустить свой бизнес
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {[
-              {
-                icon: <Briefcase className="h-6 w-6 text-[#8F6ED5]" />,
-                title: "Фрилансеры",
-                description: 'Легализуйте свою деятельность и получите доступ к корпоративным клиентам'
-              },
-              {
-                icon: <BarChart className="h-6 w-6 text-[#8F6ED5]" />,
-                title: "Стартапы",
-                description: 'Быстрый запуск юридического лица для привлечения инвестиций и масштабирования'
-              },
-              {
-                icon: <ShoppingBag className="h-6 w-6 text-[#8F6ED5]" />,
-                title: "Онлайн-магазины",
-                description: 'Возможность принимать официальные платежи и работать с крупными маркетплейсами'
-              },
-              {
-                icon: <Flag className="h-6 w-6 text-[#8F6ED5]" />,
-                title: "Иностранцы",
-                description: 'Полное сопровождение и помощь в регистрации бизнеса для нерезидентов'
-              },
-              {
-                icon: <Users className="h-6 w-6 text-[#8F6ED5]" />,
-                title: "Начинающие предприниматели",
-                description: 'Подробные консультации и поддержка для тех, кто только начинает свой бизнес'
-              },
-            ].map((item, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F0F4FF] mb-4">
-                  {item.icon}
-                </div>
-                <h3 className="text-lg font-medium text-[#1A1A1A] mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-[#6B6B6B]">
-                  {item.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
       {/* FAQ */}
       <div className="py-24 sm:py-32 bg-white">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
@@ -472,83 +383,8 @@ export default function RegisterCompanyPage() {
         </div>
       </div>
 
-      {/* CTA form */}
-      <div id="contact-form" className="py-24 sm:py-32 bg-[#F0F4FF]">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight text-[#1A1A1A] sm:text-4xl">
-                Остались вопросы?
-              </h2>
-              <p className="mt-4 text-lg text-[#6B6B6B] mb-8">
-                Оставьте номер — мы свяжемся с вами в течение дня
-              </p>
-
-              <form onSubmit={handleSubmit} className="max-w-md">
-                <div className="mb-6">
-                  <label htmlFor="phone" className="block text-[#6B6B6B] text-sm mb-2">Номер телефона</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-[#E0E0E0] rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8F6ED5] focus:border-transparent transition"
-                    placeholder="+7 (___) ___-__-__"
-                    required
-                  />
-                </div>
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full sm:w-auto bg-[#8F6ED5] text-white px-8 py-4 rounded-xl text-base font-medium shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300"
-                  >
-                    Оставить заявку
-                  </button>
-                  <p className="mt-3 text-sm text-[#6B6B6B]">
-                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                  </p>
-                </div>
-              </form>
-            </div>
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative">
-                {/* Decorative background elements */}
-                <div className="absolute -z-10 top-20 left-20 w-32 h-32 bg-[#E0FF4F] opacity-30 rounded-full blur-2xl"></div>
-                <div className="absolute -z-10 top-40 right-4 w-16 h-16 bg-[#8F6ED5] opacity-20 rounded-full blur-xl"></div>
-                
-                {/* Document stack illustration */}
-                <div className="relative w-72 h-80">
-                  <div className="absolute bottom-0 left-0 w-64 h-48 rounded-lg bg-white shadow-xl transform -rotate-6 flex items-center justify-center border-t-4 border-[#8F6ED5]">
-                    <div className="text-center">
-                      <CheckIcon size={32} className="mx-auto text-[#8F6ED5] mb-2" />
-                      <div className="text-sm font-medium">ТОО зарегистрировано</div>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-8 left-8 w-64 h-48 rounded-lg bg-white shadow-xl transform rotate-3 flex items-center justify-center border-t-4 border-[#E0FF4F]">
-                    <div className="text-center">
-                      <div className="mx-auto mb-2 h-8 w-8 rounded-full bg-[#E0FF4F] flex items-center justify-center">
-                        <Check className="h-5 w-5 text-[#1A1A1A]" />
-                      </div>
-                      <div className="text-sm font-medium">Счет открыт</div>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-16 left-16 w-64 h-48 rounded-lg bg-white shadow-xl flex items-center justify-center p-6">
-                    <div className="text-center">
-                      <p className="text-lg font-bold text-[#1A1A1A] mb-2">
-                        Готово к работе!
-                      </p>
-                      <p className="text-sm text-[#6B6B6B]">
-                        Ваше ТОО полностью готово для ведения бизнеса
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Блок из страницы bnpl */}
+      <BnplConditionsBlock />
     </div>
   )
 }

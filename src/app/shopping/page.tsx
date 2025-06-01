@@ -34,8 +34,9 @@ export default function ShoppingPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Phone submitted:', phone)
-    // Here will be the logic to handle the phone submission
+    // TODO: Implement proper form submission logic
+    alert('Спасибо! Мы свяжемся с вами в ближайшее время.')
+    setPhone('')
   }
 
   return (
