@@ -6,37 +6,12 @@ export interface ApiResponse<T = any> {
   message?: string;
 }
 
-export interface TelegramLeadRequest {
-  name: string;
-  phone: string;
-  utm?: string;
-  source?: string;
-}
-
 // Form Types
 export interface ContactFormData {
   name: string;
   phone: string;
-}
-
-export interface LoginFormData {
-  login: string;
-  password: string;
-}
-
-export interface CompanyRegistrationFormData {
-  companyName: string;
-  directorName: string;
-  phone: string;
-  email: string;
-}
-
-export interface InsuranceFormData {
-  companyName: string;
-  employeeCount: string;
-  contactName: string;
-  phone: string;
-  email: string;
+  email?: string;
+  message?: string;
 }
 
 // Form State Types
@@ -120,16 +95,6 @@ export interface SuccessModalProps {
 }
 
 // Business Logic Types
-export interface Service {
-  id: string;
-  name: string;
-  title: string;
-  description: string;
-  icon: React.ComponentType;
-  href: string;
-  cta?: string;
-}
-
 export interface FAQ {
   question: string;
   answer: string;

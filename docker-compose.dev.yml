@@ -16,7 +16,7 @@ services:
       - PORT=3000
       - WATCHPACK_POLLING=true
     ports:
-      - "3100:3000"
+      - "3200:3000"
     networks:
       - pluse-network
     stdin_open: true

@@ -1,12 +1,9 @@
-// Home page components
-export { HomeHero } from './HomeHero';
-export { HomeServices } from './HomeServices';
-export { HomeHowItWorks } from './HomeHowItWorks';
-export { HomeTrust } from './HomeTrust';
-export { HomeFAQ } from './HomeFAQ';
-export { HomeCTA } from './HomeCTA';
+// Universal Landing Page Components
+export { Hero } from './Hero';
+export { Features } from './Features';
+export { About } from './About';
+export { CTA } from './CTA';
+export { FAQ } from './FAQ';
 
-// TODO: Add more components
-// export { HomeServices } from './HomeServices';
-// export { HomeHowItWorks } from './HomeHowItWorks';
-// export { HomeTrust } from './HomeTrust'; 
+// Legacy components
+export { HomeCTA } from './HomeCTA'; 

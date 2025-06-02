@@ -1,6 +1,11 @@
 import { useState, useCallback } from 'react';
-import { FormState } from '@/types';
-import { validateEmail, validateName, validatePhone, getErrorMessage } from '@/lib/utils';
+import { getErrorMessage } from '@/lib/utils';
+
+interface FormState {
+  loading: boolean;
+  error: string | null;
+  success: boolean;
+}
 
 interface UseFormOptions<T> {
   initialValues: T;
@@ -120,21 +125,23 @@ export const validationRules = {
   },
   
   email: (value: string) => {
-    if (value && !validateEmail(value)) {
-      return 'Введите корректный email адрес';
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (value && !emailRegex.test(value)) {
+      return 'Пожалуйста, введите корректный email адрес';
     }
     return undefined;
   },
   
   phone: (value: string) => {
-    if (value && !validatePhone(value)) {
-      return 'Введите корректный номер телефона';
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    if (value && !phoneRegex.test(value.replace(/\s/g, ''))) {
+      return 'Пожалуйста, введите корректный номер телефона';
     }
     return undefined;
   },
   
   name: (value: string) => {
-    if (value && !validateName(value)) {
+    if (value && value.trim().length < 2) {
       return 'Имя должно содержать минимум 2 символа';
     }
     return undefined;

@@ -1,6 +1,7 @@
 {
-  "name": "pluse-kz",
-  "version": "0.1.0",
+  "name": "nextjs-landing-template",
+  "version": "1.0.0",
+  "description": "Modern Next.js landing page template with TypeScript, Tailwind CSS, and reusable components",
   "private": true,
   "scripts": {
     "dev": "next dev",

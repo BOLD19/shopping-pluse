@@ -1,42 +1,30 @@
 'use client'
 
-import { useHomePage } from '@/hooks/useHomePage';
 import { 
-  HomeHero, 
-  HomeServices, 
-  HomeHowItWorks, 
-  HomeTrust, 
-  HomeFAQ
+  Hero, 
+  Features, 
+  About, 
+  CTA,
+  FAQ
 } from '@/components/home';
 
 export default function HomePage() {
-  const { 
-    isLoading, 
-    expandedFaqItems, 
-    toggleFaqItem 
-  } = useHomePage();
-
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <HomeHero 
-        isLoading={isLoading}
-      />
+      <Hero />
 
-      {/* Services Section */}
-      <HomeServices />
+      {/* Features Section */}
+      <Features />
 
-      {/* How It Works Section */}
-      <HomeHowItWorks />
+      {/* About Section */}
+      <About />
 
-      {/* Trust Section */}
-      <HomeTrust />
+      {/* Call to Action Section */}
+      <CTA />
 
       {/* FAQ Section */}
-      <HomeFAQ 
-        expandedFaqItems={expandedFaqItems} 
-        toggleFaqItem={toggleFaqItem} 
-      />
+      <FAQ />
     </div>
   );
 } 
