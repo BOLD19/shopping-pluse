@@ -15,6 +15,20 @@ const defaultSubmit = async (data: ContactFormData & { utm?: string }) => {
   }
 };
 
+// Phone number formatting function
+const formatPhoneNumber = (value: string) => {
+  // Remove all non-digit characters
+  const digits = value.replace(/\D/g, '');
+  
+  // Handle different cases
+  if (digits.length === 0) return '';
+  if (digits.length <= 1) return `+7 ${digits}`;
+  if (digits.length <= 4) return `+7 ${digits.slice(1)}`;
+  if (digits.length <= 7) return `+7 ${digits.slice(1, 4)} ${digits.slice(4)}`;
+  if (digits.length <= 9) return `+7 ${digits.slice(1, 4)} ${digits.slice(4, 7)} ${digits.slice(7)}`;
+  return `+7 ${digits.slice(1, 4)} ${digits.slice(4, 7)} ${digits.slice(7, 9)} ${digits.slice(9, 11)}`;
+};
+
 export const ContactForm: React.FC<ContactFormProps> = ({
   onSubmit = defaultSubmit,
   utm,
@@ -53,33 +67,45 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     },
   });
 
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const formatted = formatPhoneNumber(e.target.value);
+    form.setValue('phone', formatted);
+  };
+
   return (
     <div className="bg-white rounded-3xl shadow-xl p-8 w-full max-w-md relative z-10">
-      <h3 className="text-xl font-semibold mb-2 text-[#1A1A1A]">{title}</h3>
+      <h3 className="text-xl font-semibold mb-2 text-[#0f172a]">{title}</h3>
       {description && (
-        <p className="text-gray-600 mb-6">{description}</p>
+        <p className="text-[#64748b] mb-6">{description}</p>
       )}
       
       <form onSubmit={form.handleSubmit} className="space-y-4">
         <Input
           label="Ваше имя"
-          placeholder="Иван Иванов"
+          placeholder="Введите имя"
           value={form.values.name}
           onChange={(value) => form.setValue('name', value)}
           error={form.errors.name}
           required
         />
         
-        <Input
-          label="Номер телефона"
-          type="tel"
-          placeholder="(___) ___-__-__"
-          prefix="+7"
-          value={form.values.phone}
-          onChange={(value) => form.setValue('phone', value)}
-          error={form.errors.phone}
-          required
-        />
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-[#0f172a]">
+            Номер телефона <span className="text-red-500 ml-1">*</span>
+          </label>
+          <input
+            type="tel"
+            placeholder="+7 700 123 45 67"
+            value={form.values.phone}
+            onChange={handlePhoneChange}
+            className="w-full px-4 py-4 rounded-2xl border border-[#e2e8f0] text-[#0f172a] placeholder-[#94a3b8] transition-all duration-200 text-base focus:outline-none focus:ring-2 focus:ring-[#0088f5]/20 focus:border-[#0088f5] hover:border-[#cbd5e1]"
+            required
+            maxLength={18}
+          />
+          {form.errors.phone && (
+            <p className="text-sm text-red-500 mt-1">{form.errors.phone}</p>
+          )}
+        </div>
         
         <div className="flex items-center">
           <input
@@ -104,7 +130,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         <Button
           type="submit"
           loading={form.state.loading}
-          disabled={!form.isValid}
+          disabled={!form.isValid || form.state.loading}
           className="w-full"
         >
           {submitButtonText}

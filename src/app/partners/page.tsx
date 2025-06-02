@@ -1,7 +1,8 @@
 'use client'
 
-import { ArrowRight, MessageCircle, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, MessageCircle, CheckCircle2, Users, DollarSign, TrendingUp, Handshake } from 'lucide-react'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function Partners() {
   const stats = [
@@ -42,60 +43,87 @@ export default function Partners() {
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#f8fafc] via-white to-[#f0f9ff]"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#0088f5]/5 blur-[120px]"></div>
         
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block mb-8">
-              <span className="text-sm font-medium text-[#0088f5] tracking-wider uppercase">Партнерская программа</span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content - Left */}
+            <div>
+              <div className="inline-block mb-6">
+                <span className="text-sm font-medium text-[#0088f5] tracking-wider uppercase">Партнерская программа</span>
         </div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-[#0f172a] mb-8 leading-tight">
-              Зарабатывайте{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0088f5] to-[#0979ff]">
-                вместе с нами
-              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0f172a] mb-6 leading-tight">
+                Зарабатывайте{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0088f5] to-[#0979ff]">
+                  вместе с нами
+                </span>
             </h1>
-            
-            <p className="text-xl lg:text-2xl text-[#64748b] mb-12 max-w-3xl mx-auto leading-relaxed">
-              Получайте стабильный доход от каждого привлеченного клиента. 
-              До 50% от комиссии с первой транзакции.
+              
+              <p className="text-lg lg:text-xl text-[#64748b] mb-8 leading-relaxed">
+                Приводите клиентов — получайте деньги. 
+                До 50% от комиссии.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              
+              <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <a
-                href="#details"
-                className="bg-[#0088f5] hover:bg-[#0979ff] text-white px-8 py-4 rounded-2xl text-lg font-medium shadow-[0_8px_30px_rgba(0,136,245,0.2)] hover:shadow-[0_8px_30px_rgba(0,136,245,0.4)] transition-all duration-300 flex items-center justify-center gap-2"
+                  href="#details"
+                  className="bg-[#0088f5] hover:bg-[#0979ff] text-white px-8 py-4 rounded-2xl text-lg font-medium shadow-[0_8px_30px_rgba(0,136,245,0.2)] hover:shadow-[0_8px_30px_rgba(0,136,245,0.4)] transition-all duration-300 flex items-center justify-center gap-2"
               >
-                Узнать подробности
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href={`https://wa.me/77474288095?text=${encodeURIComponent('Здравствуйте! Интересует партнерская программа Pluse.kz')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white text-[#0f172a] border border-[#e2e8f0] px-8 py-4 rounded-2xl text-lg font-medium hover:border-[#0088f5] hover:text-[#0088f5] transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                <MessageCircle className="w-5 h-5" />
-                Написать в WhatsApp
-              </a>
+                  Узнать подробности
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
             </div>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-4xl lg:text-5xl font-bold text-[#0088f5] mb-2">
-                    {stat.value}
+            {/* Right side - Agent Image */}
+            <div className="relative flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-md">
+                <Image
+                  src="/agent.png"
+                  alt="Партнерская программа"
+                  width={500}
+                  height={600}
+                  className="w-full h-auto object-contain"
+                  priority
+                />
+                
+                {/* Floating earnings card */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.5 }}
+                  className="absolute top-8 -left-4 lg:-left-8 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 max-w-[200px]"
+                >
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-[#0088f5] mb-1">485 000₸</div>
+                    <div className="text-xs text-[#64748b]">Заработал за месяц</div>
                   </div>
-                  <div className="text-lg font-medium text-[#0f172a] mb-1">
-                    {stat.label}
+                  <div className="absolute -bottom-2 left-8 w-4 h-4 bg-white border-r border-b border-gray-100 transform rotate-45"></div>
+                </motion.div>
+
+                {/* Speech bubble */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, x: -20 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  className="absolute top-1/3 -right-4 lg:-right-8 bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white rounded-2xl p-4 shadow-lg max-w-[180px]"
+                >
+                  <div className="text-sm font-medium">
+                    "Привожу 20+ клиентов в месяц и получаю стабильный доход!"
                   </div>
-                  <div className="text-sm text-[#64748b]">
-                    {stat.description}
-                  </div>
-                </div>
-              ))}
+                  <div className="absolute -bottom-2 left-6 w-4 h-4 bg-[#0088f5] transform rotate-45"></div>
+                </motion.div>
+
+                {/* Success badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: 1.1 }}
+                  className="absolute bottom-8 -left-2 lg:-left-6 bg-green-500 text-white rounded-full p-3 shadow-lg"
+                >
+                  <div className="text-xs font-bold">TOP</div>
+                </motion.div>
+              </div>
             </div>
           </div>
         </div>
@@ -202,21 +230,21 @@ export default function Partners() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-[#0f172a] relative overflow-hidden">
+      <section className="py-24 bg-white relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-[#0088f5]/10 blur-[120px]" />
-          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-[#0979ff]/10 blur-[100px]" />
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-[#0088f5]/5 blur-[120px]" />
+          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full bg-[#0979ff]/5 blur-[100px]" />
         </div>
         
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#0f172a] mb-8">
             Начните зарабатывать{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0088f5] to-[#0979ff]">
               уже сегодня
             </span>
           </h2>
           
-          <p className="text-xl text-white/80 mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-[#64748b] mb-12 max-w-2xl mx-auto">
             Присоединяйтесь к нашей команде партнеров и получайте стабильный доход
           </p>
           
@@ -230,8 +258,8 @@ export default function Partners() {
             Стать партнером
           </a>
           
-          <div className="mt-12 inline-block px-6 py-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
-            <p className="text-white/60 text-sm">
+          <div className="mt-12 inline-block px-6 py-3 bg-[#f8fafc] border border-[#f1f5f9] rounded-xl">
+            <p className="text-[#64748b] text-sm">
               ⚡ Запускаем новых партнеров в работу за 24 часа
             </p>
           </div>

@@ -30,9 +30,9 @@ export const HomeTrust: React.FC = () => {
                 </p>
               </div>
               <div className="flex-shrink-0">
-                <Image
-                  src="/rbk_logo.png"
-                  alt="RBK Bank"
+              <Image
+                src="/rbk_logo.png"
+                alt="RBK Bank"
                   width={140}
                   height={50}
                   className="h-12 w-auto object-contain"
@@ -51,19 +51,19 @@ export const HomeTrust: React.FC = () => {
                 <Image
                   src="/tumar_logo.png"
                   alt="Tumar Ventures"
-                  width={120}
+                width={120}
                   height={45}
-                  className="h-10 w-auto object-contain opacity-80"
-                />
-              </div>
-              <div>
+                className="h-10 w-auto object-contain opacity-80"
+              />
+                </div>
+                <div>
                 <h3 className="text-xl font-semibold text-[#0f172a] mb-3">
-                  Фонд Tumar Ventures — среди наших инвесторов
-                </h3>
+                    Фонд Tumar Ventures — среди наших инвесторов
+                  </h3>
                 <p className="text-[#64748b]">
                   Tumar поддерживает сильные и масштабируемые стартапы, которые меняют рынки
-                </p>
-              </div>
+                  </p>
+                </div>
             </div>
 
             <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100">
@@ -78,16 +78,16 @@ export const HomeTrust: React.FC = () => {
                   height={60}
                   className="h-12 w-auto object-contain opacity-80"
                 />
-              </div>
-              <div>
+                </div>
+                <div>
                 <h3 className="text-xl font-semibold text-[#0f172a] mb-3">
-                  Pluse.kz — резидент Astana Hub
-                </h3>
+                    Pluse.kz — резидент Astana Hub
+                  </h3>
                 <p className="text-[#64748b]">
                   Мы развиваемся в крупнейшем технопарке Центральной Азии с поддержкой государства
-                </p>
+                  </p>
               </div>
-            </div>
+          </div>
           </div>
         </div>
       </div>

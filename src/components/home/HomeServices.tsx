@@ -62,12 +62,12 @@ export const HomeServices = () => {
         <div className="grid grid-cols-5 gap-8 mb-20">
           {services.map((service) => (
             <motion.button
-              key={service.id}
+                key={service.id}
               onClick={() => setActiveTab(service.id)}
               className={`relative flex flex-col items-center group cursor-pointer relative ${
                 activeTab === service.id ? 'after:content-[""] after:absolute after:bottom-[-12px] after:left-1/2 after:-translate-x-1/2 after:w-12 after:h-[3px] after:bg-[#0088f5] after:rounded-full' : ''
-              }`}
-            >
+                }`}
+              >
               <div className="relative w-24 h-24 mb-4 rounded-2xl flex items-center justify-center transition-all duration-300">
                 <Image 
                   src={service.iconPath}
@@ -80,21 +80,21 @@ export const HomeServices = () => {
                     drop-shadow-[0_8px_16px_rgba(0,136,245,0.3)]
                   `}
                 />
-              </div>
-              <span className={`text-sm font-medium transition-colors duration-200 text-center ${
+                </div>
+                <span className={`text-sm font-medium transition-colors duration-200 text-center ${
                 activeTab === service.id ? 'text-[#0088f5]' : 'text-[#0f172a] group-hover:text-[#0088f5]'
-              }`}>
-                {service.name}
-                {activeTab === service.id && (
-                  <motion.span
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="inline-block ml-1"
-                  >
-                    →
-                  </motion.span>
-                )}
-              </span>
+                }`}>
+                  {service.name}
+                  {activeTab === service.id && (
+                    <motion.span
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="inline-block ml-1"
+                    >
+                      →
+                    </motion.span>
+                  )}
+                </span>
             </motion.button>
           ))}
         </div>
@@ -110,24 +110,24 @@ export const HomeServices = () => {
               className="space-y-6"
             >
               <h3 className="text-2xl sm:text-3xl font-bold text-[#0f172a]">
-                {activeService?.title}
-              </h3>
+              {activeService?.title}
+            </h3>
               <p className="text-[#64748b] text-lg">
-                {activeService?.description}
-              </p>
+              {activeService?.description}
+            </p>
               {activeService?.cta && (
-                <Link
+              <Link
                   href={activeService.href}
                   className="inline-flex items-center bg-[#0088f5] hover:bg-[#0979ff] text-white px-6 py-3 rounded-xl text-base font-medium shadow-[0_8px_30px_rgba(0,136,245,0.2)] hover:shadow-[0_8px_30px_rgba(0,136,245,0.4)] transition-all duration-300"
-                >
+              >
                   {activeService.cta}
-                </Link>
+              </Link>
               )}
             </motion.div>
           </div>
-
+          
           <div className="order-1 lg:order-2">
-            {activeTab === "bnpl" && (
+              {activeTab === "bnpl" && (
               <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] h-72 sm:h-80 lg:h-96 flex items-center justify-center relative">
                 <div className="w-full h-full relative">
                   <Image 
@@ -148,13 +148,13 @@ export const HomeServices = () => {
                   <div className="absolute bottom-4 left-4">
                     <div className="bg-white/90 backdrop-blur-sm text-[#0f172a] px-3 py-2 rounded-lg text-sm font-medium shadow-lg border border-gray-100">
                       Все банки → один QR
-                    </div>
+                  </div>
+                  </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
               
-            {activeTab === "shopping" && (
+              {activeTab === "shopping" && (
               <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] h-80 sm:h-96 lg:h-[28rem] overflow-hidden relative">
                 {/* Бейдж магазина */}
                 <div className="absolute top-6 left-6 z-10">
@@ -214,10 +214,10 @@ export const HomeServices = () => {
                         </div>
                       </div>
                     </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
               
             {activeTab === "insurance" && (
               <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] h-80 sm:h-96 lg:h-[28rem] overflow-hidden relative">
@@ -239,7 +239,7 @@ export const HomeServices = () => {
                         <div className="flex items-center gap-2 mb-1">
                           <span className="text-sm font-medium text-[#0f172a]">Асема Брокер</span>
                           <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                        </div>
+                    </div>
                         <p className="text-xs text-[#64748b] leading-relaxed">
                           Только что помогла ТОО "Алтын" сэкономить 84500₸ на страховке
                         </p>
@@ -259,10 +259,10 @@ export const HomeServices = () => {
                     />
                   </div>
                 </div>
-              </div>
-            )}
+                </div>
+              )}
               
-            {activeTab === "bank" && (
+              {activeTab === "bank" && (
               <div className="bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] h-80 sm:h-96 lg:h-[28rem] relative">
                 {/* Статус скоро */}
                 <div className="absolute top-6 right-6 z-10">
@@ -337,7 +337,7 @@ export const HomeServices = () => {
                             <span className="text-[#64748b]">Поступление от ТОО "Актау"</span>
                           </div>
                           <span className="text-[#0f172a] font-medium">+285,000₸</span>
-                        </div>
+                </div>
                         
                         <div className="flex items-center justify-between text-sm">
                           <div className="flex items-center gap-3">
@@ -350,8 +350,8 @@ export const HomeServices = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-            )}
+                </div>
+              )}
           </div>
         </div>
       </div>

@@ -5,11 +5,10 @@ import { Check, ArrowRight, PhoneCall, Smartphone, Sofa, GraduationCap, Stethosc
 import Image from 'next/image'
 import Link from 'next/link'
 import BnplHeroBlock from '@/components/bnpl/BnplHeroBlock'
-import BnplWhyChooseBlock from '@/components/bnpl/BnplWhyChooseBlock'
 import BnplProblemsBlock from '@/components/bnpl/BnplProblemsBlock'
 import BnplApprovalBlock from '@/components/bnpl/BnplApprovalBlock'
+import BnplPersonalCabinetBlock from '@/components/bnpl/BnplPersonalCabinetBlock'
 import BnplConditionsBlock from '@/components/bnpl/BnplConditionsBlock'
-import BnplBusinessSimplificationBlock from '@/components/bnpl/BnplBusinessSimplificationBlock'
 
 export default function BnplPage() {
   const [formData, setFormData] = useState({
@@ -106,13 +105,11 @@ export default function BnplPage() {
       <main className="flex-1">
         <BnplHeroBlock />
 
-        <BnplWhyChooseBlock />
-
         <BnplProblemsBlock />
 
         <BnplApprovalBlock />
 
-        <BnplBusinessSimplificationBlock />
+        <BnplPersonalCabinetBlock />
 
         <BnplConditionsBlock />
 
