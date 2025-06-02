@@ -70,23 +70,23 @@ function InsuranceForm() {
   };
 
   return (
-    <div className="bg-white rounded-3xl shadow-xl p-8 w-full max-w-md relative z-10">
-      <h3 className="text-xl font-semibold mb-4 mt-8">Оставить заявку</h3>
+    <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] p-8 w-full max-w-md relative z-10">
+      <h3 className="text-xl font-semibold text-[#0f172a] mb-4 mt-8">Оставить заявку</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Ваше имя"
-          className="w-full mb-3 px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8F6ED5] outline-none"
+          className="w-full mb-3 px-4 py-3 rounded-xl border border-gray-200 focus:border-[#0088f5] outline-none"
           value={name}
           onChange={e => setName(e.target.value)}
           required
         />
         <div className="flex items-center mb-3">
-          <span className="inline-block bg-[#F0F4FF] px-3 py-2 rounded-l-xl border border-r-0 border-gray-200 text-[#8F6ED5] font-medium">+7</span>
+          <span className="inline-block bg-[#EBF8FF] px-3 py-2 rounded-l-xl border border-r-0 border-gray-200 text-[#0088f5] font-medium">+7</span>
           <input
             type="tel"
             placeholder="(___) ___-__-__"
-            className="w-full px-4 py-3 rounded-r-xl border border-gray-200 focus:border-[#8F6ED5] outline-none"
+            className="w-full px-4 py-3 rounded-r-xl border border-gray-200 focus:border-[#0088f5] outline-none"
             value={phone}
             onChange={e => setPhone(e.target.value)}
             required
@@ -94,11 +94,11 @@ function InsuranceForm() {
         </div>
         <div className="flex items-center mb-4">
           <input type="checkbox" id="privacy" className="mr-2" required />
-          <label htmlFor="privacy" className="text-xs text-gray-500">Я согласен с <a href="/privacy" className="underline text-[#8F6ED5]">политикой конфиденциальности</a></label>
+          <label htmlFor="privacy" className="text-xs text-[#64748b]">Я согласен с <a href="/privacy" className="underline text-[#0088f5]">политикой конфиденциальности</a></label>
         </div>
         <button
           type="submit"
-          className="w-full bg-[#8F6ED5] hover:bg-[#7F5EC5] text-white font-medium py-3 px-6 rounded-xl transition-all disabled:opacity-60"
+          className="w-full bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white px-8 py-4 rounded-2xl text-base font-medium shadow-[0_8px_30px_rgba(0,136,245,0.3)] hover:shadow-[0_12px_40px_rgba(0,136,245,0.5)] hover:scale-[1.02] transition-all duration-300 disabled:opacity-60"
           disabled={loading}
         >
           {loading ? 'Отправка...' : 'Оставить заявку'}
@@ -113,10 +113,10 @@ function InsuranceForm() {
         >
           <div className="bg-white rounded-2xl px-8 py-6 shadow-xl text-center max-w-xs mx-auto">
             <div className="text-2xl mb-2">🎉</div>
-            <div className="text-lg font-semibold mb-2">Форма успешно отправлена!</div>
-            <div className="text-gray-500 text-sm mb-2">Спасибо! Мы свяжемся с вами в ближайшее время.</div>
+            <div className="text-lg font-semibold text-[#0f172a] mb-2">Форма успешно отправлена!</div>
+            <div className="text-[#64748b] text-sm mb-2">Спасибо! Мы свяжемся с вами в ближайшее время.</div>
             <button
-              className="mt-2 px-4 py-2 bg-[#8F6ED5] text-white rounded-xl font-medium hover:bg-[#7F5EC5] transition"
+              className="mt-2 px-4 py-2 bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white rounded-xl font-medium shadow-[0_8px_30px_rgba(0,136,245,0.3)] hover:shadow-[0_12px_40px_rgba(0,136,245,0.5)] hover:scale-[1.02] transition-all duration-300"
               onClick={() => setSuccess(false)}
             >
               Закрыть
@@ -129,139 +129,129 @@ function InsuranceForm() {
 }
 
 export default function InsurancePage() {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: ''
-  })
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // TODO: Implement proper form submission logic
-    alert('Спасибо! Мы свяжемся с вами в ближайшее время.')
-    setFormData({ name: '', phone: '' })
-  }
-
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#181C36] h-[568px] py-8 sm:py-0">
-        {/* Геометрические элементы */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none select-none">
-          {/* Большой фиолетовый угол */}
-          <div className="absolute top-0 right-0 w-[800px] h-[600px] transform rotate-[-10deg] translate-x-1/4 translate-y-[-10%] bg-gradient-to-br from-[#8F6ED5] via-[#6B4FD5] to-[#FDFCFB] opacity-40 rounded-[40px] transition-all duration-1000"></div>
-          {/* Средний угол */}
-          <div className="absolute top-1/3 right-0 w-[600px] h-[400px] transform rotate-[-15deg] translate-x-1/3 bg-gradient-to-br from-[#7F5EC5] via-[#5B3FD5] to-[#FDFCFB] opacity-30 rounded-[40px] transition-all duration-1000"></div>
-          {/* Маленький угол */}
-          <div className="absolute bottom-10 right-1/4 w-[300px] h-[200px] transform rotate-[-5deg] bg-gradient-to-br from-[#6B4FD5] via-[#4B2FD5] to-[#FDFCFB] opacity-20 rounded-[40px] transition-all duration-1000"></div>
-        </div>
-        {/* Текстовый блок hero */}
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full relative z-10 flex items-center min-h-[80vh] sm:min-h-[60vh]">
-          <div className="w-full md:max-w-[800px] lg:max-w-[900px] text-left mt-12">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight text-left break-words px-4">
+      <section className="relative isolate overflow-hidden bg-[#0f172a]">
+        <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
               Страхование бизнеса<br />без лишних хлопот
-          </h1>
-            <div className="text-sm sm:text-lg text-white/80 mb-8 max-w-lg text-left px-4">
+            </h1>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
               Защитите бизнес от рисков — страховые решения от Pluse.kz с лучшими условиями от топовых компаний Казахстана.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://wa.me/77070607140?text=Здравствуйте!%20Интересует%20страхование%20ТОО.%20Можно%20узнать%20условия?"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white px-8 py-4 rounded-2xl text-base font-medium shadow-[0_8px_30px_rgba(0,136,245,0.3)] hover:shadow-[0_12px_40px_rgba(0,136,245,0.5)] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Получить консультацию
+              </a>
             </div>
-            <a
-              href="https://wa.me/77070607140?text=Здравствуйте!%20Интересует%20страхование%20ТОО.%20Можно%20узнать%20условия?"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-[#8F6ED5] border-2 border-[#8F6ED5] sm:bg-[#8F6ED5] sm:text-white sm:border-none px-4 py-3 text-sm rounded-lg sm:px-8 sm:py-4 sm:text-base sm:rounded-xl hover:bg-[#F0F4FF] sm:hover:bg-[#7F5EC5] transition-all duration-200 ml-4"
-            >
-              <MessageCircle className="w-5 h-5" />
-            Получить консультацию
-            </a>
           </div>
         </div>
+        <svg
+          viewBox="0 0 1024 1024"
+          className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+          aria-hidden="true"
+        >
+          <circle cx="512" cy="512" r="512" fill="url(#gradient)" fillOpacity="0.7" />
+          <defs>
+            <radialGradient id="gradient">
+              <stop stopColor="#0088f5" />
+              <stop offset="1" stopColor="#0979ff" />
+            </radialGradient>
+          </defs>
+        </svg>
       </section>
 
       {/* Insurance Products Section */}
-      <section className="py-20 bg-white">
-        <div className="container max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] text-center mb-16">
-            Страховые продукты для вашего бизнеса
-          </h2>
+      <section className="py-24 sm:py-32 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] sm:text-4xl">
+              Страховые продукты для вашего бизнеса
+            </h2>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Product Card 1 */}
-            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xl shadow-[#8F6ED5]/5 hover:shadow-[#8F6ED5]/10 transition-all hover:border-[#8F6ED5]/50 group">
-              <div className="mb-5 bg-[#F0F4FF] rounded-full w-14 h-14 flex items-center justify-center">
-                <Building2 className="h-7 w-7 text-[#8F6ED5]" />
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#EBF8FF] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Building2 className="h-7 w-7 text-[#0088f5]" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Страхование имущества</h3>
-              <p className="text-[#6B6B6B] mb-5">Защитите физические активы вашей компании от пожара, наводнения, кражи и других рисков.</p>
-              <a href="#contact" className="inline-flex items-center text-[#8F6ED5] group-hover:text-[#7F5EC5] font-medium">
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Страхование имущества</h3>
+              <p className="text-[#64748b] mb-5">Защитите физические активы вашей компании от пожара, наводнения, кражи и других рисков.</p>
+              <a href="#contact" className="inline-flex items-center text-[#0088f5] group-hover:text-[#0979ff] font-medium">
                 Подробнее
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
 
             {/* Product Card 2 */}
-            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xl shadow-[#8F6ED5]/5 hover:shadow-[#8F6ED5]/10 transition-all hover:border-[#8F6ED5]/50 group">
-              <div className="mb-5 bg-[#F0F4FF] rounded-full w-14 h-14 flex items-center justify-center">
-                <Briefcase className="h-7 w-7 text-[#8F6ED5]" />
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#EBF8FF] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Briefcase className="h-7 w-7 text-[#0088f5]" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Страхование ответственности</h3>
-              <p className="text-[#6B6B6B] mb-5">Защита от исков третьих лиц, связанных с вашей профессиональной деятельностью.</p>
-              <a href="#contact" className="inline-flex items-center text-[#8F6ED5] group-hover:text-[#7F5EC5] font-medium">
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Страхование ответственности</h3>
+              <p className="text-[#64748b] mb-5">Защита от исков третьих лиц, связанных с вашей профессиональной деятельностью.</p>
+              <a href="#contact" className="inline-flex items-center text-[#0088f5] group-hover:text-[#0979ff] font-medium">
                 Подробнее
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
 
             {/* Product Card 3 */}
-            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xl shadow-[#8F6ED5]/5 hover:shadow-[#8F6ED5]/10 transition-all hover:border-[#8F6ED5]/50 group">
-              <div className="mb-5 bg-[#F0F4FF] rounded-full w-14 h-14 flex items-center justify-center">
-                <Users className="h-7 w-7 text-[#8F6ED5]" />
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#EBF8FF] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Users className="h-7 w-7 text-[#0088f5]" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Страхование сотрудников</h3>
-              <p className="text-[#6B6B6B] mb-5">Медицинское страхование и страхование от несчастных случаев для ваших сотрудников.</p>
-              <a href="#contact" className="inline-flex items-center text-[#8F6ED5] group-hover:text-[#7F5EC5] font-medium">
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Страхование сотрудников</h3>
+              <p className="text-[#64748b] mb-5">Медицинское страхование и страхование от несчастных случаев для ваших сотрудников.</p>
+              <a href="#contact" className="inline-flex items-center text-[#0088f5] group-hover:text-[#0979ff] font-medium">
                 Подробнее
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
 
             {/* Product Card 4 */}
-            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xl shadow-[#8F6ED5]/5 hover:shadow-[#8F6ED5]/10 transition-all hover:border-[#8F6ED5]/50 group">
-              <div className="mb-5 bg-[#F0F4FF] rounded-full w-14 h-14 flex items-center justify-center">
-                <Car className="h-7 w-7 text-[#8F6ED5]" />
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#EBF8FF] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Car className="h-7 w-7 text-[#0088f5]" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Автострахование</h3>
-              <p className="text-[#6B6B6B] mb-5">Комплексное страхование корпоративного автопарка вашей компании.</p>
-              <a href="#contact" className="inline-flex items-center text-[#8F6ED5] group-hover:text-[#7F5EC5] font-medium">
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Автострахование</h3>
+              <p className="text-[#64748b] mb-5">Комплексное страхование корпоративного автопарка вашей компании.</p>
+              <a href="#contact" className="inline-flex items-center text-[#0088f5] group-hover:text-[#0979ff] font-medium">
                 Подробнее
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
 
             {/* Product Card 5 */}
-            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xl shadow-[#8F6ED5]/5 hover:shadow-[#8F6ED5]/10 transition-all hover:border-[#8F6ED5]/50 group">
-              <div className="mb-5 bg-[#F0F4FF] rounded-full w-14 h-14 flex items-center justify-center">
-                <Shield className="h-7 w-7 text-[#8F6ED5]" />
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#EBF8FF] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Shield className="h-7 w-7 text-[#0088f5]" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Киберстрахование</h3>
-              <p className="text-[#6B6B6B] mb-5">Защита от финансовых потерь в результате кибератак и утечки данных.</p>
-              <a href="#contact" className="inline-flex items-center text-[#8F6ED5] group-hover:text-[#7F5EC5] font-medium">
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Киберстрахование</h3>
+              <p className="text-[#64748b] mb-5">Защита от финансовых потерь в результате кибератак и утечки данных.</p>
+              <a href="#contact" className="inline-flex items-center text-[#0088f5] group-hover:text-[#0979ff] font-medium">
                 Подробнее
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
             </div>
 
             {/* Product Card 6 */}
-            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-xl shadow-[#8F6ED5]/5 hover:shadow-[#8F6ED5]/10 transition-all hover:border-[#8F6ED5]/50 group">
-              <div className="mb-5 bg-[#F0F4FF] rounded-full w-14 h-14 flex items-center justify-center">
-                <Stethoscope className="h-7 w-7 text-[#8F6ED5]" />
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#EBF8FF] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Stethoscope className="h-7 w-7 text-[#0088f5]" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Страхование от перерыва в бизнесе</h3>
-              <p className="text-[#6B6B6B] mb-5">Компенсация финансовых потерь при вынужденной приостановке деятельности.</p>
-              <a href="#contact" className="inline-flex items-center text-[#8F6ED5] group-hover:text-[#7F5EC5] font-medium">
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Страхование от перерыва в бизнесе</h3>
+              <p className="text-[#64748b] mb-5">Компенсация финансовых потерь при вынужденной приостановке деятельности.</p>
+              <a href="#contact" className="inline-flex items-center text-[#0088f5] group-hover:text-[#0979ff] font-medium">
                 Подробнее
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
@@ -271,93 +261,97 @@ export default function InsurancePage() {
       </section>
 
       {/* Why Choose Pluse Section */}
-      <section className="py-20 bg-[#F0F4FF]">
-        <div className="container max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] text-center mb-16">
-            Почему выбирают Pluse для страхования
-          </h2>
+      <section className="py-24 sm:py-32 bg-[#f8fafc]">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] sm:text-4xl">
+              Почему выбирают Pluse для страхования
+            </h2>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
             {/* Advantage 1 */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-100">
-              <div className="mb-5 bg-[#F0F4FF] rounded-full w-14 h-14 flex items-center justify-center">
-                <CheckCircle2 className="h-7 w-7 text-[#8F6ED5]" />
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#EBF8FF] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <CheckCircle2 className="h-7 w-7 text-[#0088f5]" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Экономия времени</h3>
-              <p className="text-[#6B6B6B]">Оформление страховки занимает всего несколько минут, без необходимости посещения офиса.</p>
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Экономия времени</h3>
+              <p className="text-[#64748b]">Оформление страховки занимает всего несколько минут, без необходимости посещения офиса.</p>
             </div>
 
             {/* Advantage 2 */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-100">
-              <div className="mb-5 bg-[#F0F4FF] rounded-full w-14 h-14 flex items-center justify-center">
-                <CreditCardIcon className="h-7 w-7 text-[#8F6ED5]" />
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#EBF8FF] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <CreditCardIcon className="h-7 w-7 text-[#0088f5]" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Выгодные условия</h3>
-              <p className="text-[#6B6B6B]">Мы сотрудничаем с лучшими страховыми компаниями и получаем для вас специальные условия.</p>
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Выгодные условия</h3>
+              <p className="text-[#64748b]">Мы сотрудничаем с лучшими страховыми компаниями и получаем для вас специальные условия.</p>
             </div>
 
             {/* Advantage 3 */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-100">
-              <div className="mb-5 bg-[#F0F4FF] rounded-full w-14 h-14 flex items-center justify-center">
-                <HeartHandshake className="h-7 w-7 text-[#8F6ED5]" />
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#EBF8FF] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <HeartHandshake className="h-7 w-7 text-[#0088f5]" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Персональный подход</h3>
-              <p className="text-[#6B6B6B]">Каждому клиенту предоставляется персональный менеджер для решения любых вопросов.</p>
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Персональный подход</h3>
+              <p className="text-[#64748b]">Каждому клиенту предоставляется персональный менеджер для решения любых вопросов.</p>
             </div>
 
             {/* Advantage 4 */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-100">
-              <div className="mb-5 bg-[#F0F4FF] rounded-full w-14 h-14 flex items-center justify-center">
-                <Clock className="h-7 w-7 text-[#8F6ED5]" />
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#EBF8FF] mb-6 group-hover:scale-110 transition-transform duration-300">
+                <Clock className="h-7 w-7 text-[#0088f5]" />
               </div>
-              <h3 className="text-xl font-bold text-[#1A1A1A] mb-3">Быстрые выплаты</h3>
-              <p className="text-[#6B6B6B]">Мы помогаем ускорить процесс получения выплат по страховым случаям.</p>
+              <h3 className="text-xl font-bold text-[#0f172a] mb-3">Быстрые выплаты</h3>
+              <p className="text-[#64748b]">Мы помогаем ускорить процесс получения выплат по страховым случаям.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* How It Works Section */}
-      <section className="py-20 bg-white">
-        <div className="container max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] text-center mb-16">
-            Как работает наш сервис
-          </h2>
+      <section className="py-24 sm:py-32 bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] sm:text-4xl">
+              Как работает наш сервис
+            </h2>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Step 1 */}
             <div className="relative">
               <div className="flex flex-col items-center z-10 relative">
-                <div className="bg-[#8F6ED5] text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">1</div>
-                <h3 className="text-xl font-bold text-[#1A1A1A] mb-3 text-center">Консультация</h3>
-                <p className="text-[#6B6B6B] text-center">Оставьте заявку или свяжитесь с нами через WhatsApp для получения бесплатной консультации.</p>
+                <div className="bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white rounded-xl w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">1</div>
+                <h3 className="text-xl font-bold text-[#0f172a] mb-3 text-center">Консультация</h3>
+                <p className="text-[#64748b] text-center">Оставьте заявку или свяжитесь с нами через WhatsApp для получения бесплатной консультации.</p>
               </div>
             </div>
 
             {/* Step 2 */}
             <div className="relative">
               <div className="flex flex-col items-center z-10 relative">
-                <div className="bg-[#8F6ED5] text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">2</div>
-                <h3 className="text-xl font-bold text-[#1A1A1A] mb-3 text-center">Подбор решения</h3>
-                <p className="text-[#6B6B6B] text-center">Наши специалисты подберут оптимальное страховое решение для вашего бизнеса.</p>
+                <div className="bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white rounded-xl w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">2</div>
+                <h3 className="text-xl font-bold text-[#0f172a] mb-3 text-center">Подбор решения</h3>
+                <p className="text-[#64748b] text-center">Наши специалисты подберут оптимальное страховое решение для вашего бизнеса.</p>
               </div>
             </div>
 
             {/* Step 3 */}
             <div className="relative">
               <div className="flex flex-col items-center z-10 relative">
-                <div className="bg-[#8F6ED5] text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">3</div>
-                <h3 className="text-xl font-bold text-[#1A1A1A] mb-3 text-center">Оформление</h3>
-                <p className="text-[#6B6B6B] text-center">Быстрое оформление договора страхования онлайн без посещения офиса.</p>
+                <div className="bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white rounded-xl w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">3</div>
+                <h3 className="text-xl font-bold text-[#0f172a] mb-3 text-center">Оформление</h3>
+                <p className="text-[#64748b] text-center">Быстрое оформление договора страхования онлайн без посещения офиса.</p>
               </div>
             </div>
 
             {/* Step 4 */}
             <div className="relative">
               <div className="flex flex-col items-center z-10 relative">
-                <div className="bg-[#8F6ED5] text-white rounded-full w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">4</div>
-                <h3 className="text-xl font-bold text-[#1A1A1A] mb-3 text-center">Сопровождение</h3>
-                <p className="text-[#6B6B6B] text-center">Мы остаемся на связи и поможем с урегулированием при наступлении страхового случая.</p>
+                <div className="bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white rounded-xl w-12 h-12 flex items-center justify-center mb-4 text-xl font-bold">4</div>
+                <h3 className="text-xl font-bold text-[#0f172a] mb-3 text-center">Сопровождение</h3>
+                <p className="text-[#64748b] text-center">Мы остаемся на связи и поможем с урегулированием при наступлении страхового случая.</p>
               </div>
             </div>
           </div>
@@ -365,71 +359,73 @@ export default function InsurancePage() {
       </section>
 
       {/* Common Use Cases Section */}
-      <section className="py-20 bg-[#F0F4FF]">
-        <div className="container max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A1A] text-center mb-16">
-            Распространенные кейсы использования
-          </h2>
+      <section className="py-24 sm:py-32 bg-[#f8fafc]">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] sm:text-4xl">
+              Распространенные кейсы использования
+            </h2>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Case 1 */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 hover:border-[#8F6ED5]/30 transition-all">
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
               <div className="flex items-start mb-4">
-                <div className="bg-[#F0F4FF] rounded-xl p-3 mr-4">
-                  <Building2 className="h-6 w-6 text-[#8F6ED5]" />
+                <div className="bg-[#EBF8FF] rounded-xl p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
+                  <Building2 className="h-6 w-6 text-[#0088f5]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1A1A1A]">Ретейл-бизнес</h3>
+                <h3 className="text-xl font-bold text-[#0f172a]">Ретейл-бизнес</h3>
               </div>
-              <p className="text-[#6B6B6B] mb-4">Страхование товарных запасов, оборудования и гражданской ответственности перед покупателями.</p>
+              <p className="text-[#64748b] mb-4">Страхование товарных запасов, оборудования и гражданской ответственности перед покупателями.</p>
               <ul className="space-y-2">
-                <li className="flex items-center text-[#6B6B6B]">
-                  <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
+                <li className="flex items-center text-[#64748b]">
+                  <CheckCircle2 className="h-4 w-4 text-[#0088f5] mr-2" />
                   <span>Защита от кражи и порчи товара</span>
                 </li>
-                <li className="flex items-center text-[#6B6B6B]">
-                  <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
+                <li className="flex items-center text-[#64748b]">
+                  <CheckCircle2 className="h-4 w-4 text-[#0088f5] mr-2" />
                   <span>Страхование от пожара и затопления</span>
                 </li>
               </ul>
             </div>
 
             {/* Case 2 */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 hover:border-[#8F6ED5]/30 transition-all">
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
               <div className="flex items-start mb-4">
-                <div className="bg-[#F0F4FF] rounded-xl p-3 mr-4">
-                  <Briefcase className="h-6 w-6 text-[#8F6ED5]" />
+                <div className="bg-[#EBF8FF] rounded-xl p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
+                  <Briefcase className="h-6 w-6 text-[#0088f5]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1A1A1A]">IT-компании</h3>
+                <h3 className="text-xl font-bold text-[#0f172a]">IT-компании</h3>
               </div>
-              <p className="text-[#6B6B6B] mb-4">Киберстрахование и страхование профессиональной ответственности для защиты бизнеса.</p>
+              <p className="text-[#64748b] mb-4">Киберстрахование и страхование профессиональной ответственности для защиты бизнеса.</p>
               <ul className="space-y-2">
-                <li className="flex items-center text-[#6B6B6B]">
-                  <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
+                <li className="flex items-center text-[#64748b]">
+                  <CheckCircle2 className="h-4 w-4 text-[#0088f5] mr-2" />
                   <span>Защита от исков клиентов</span>
                 </li>
-                <li className="flex items-center text-[#6B6B6B]">
-                  <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
+                <li className="flex items-center text-[#64748b]">
+                  <CheckCircle2 className="h-4 w-4 text-[#0088f5] mr-2" />
                   <span>Страхование от утечки данных</span>
                 </li>
               </ul>
             </div>
 
             {/* Case 3 */}
-            <div className="bg-white rounded-2xl p-6 shadow-xl border border-gray-100 hover:border-[#8F6ED5]/30 transition-all">
+            <div className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
               <div className="flex items-start mb-4">
-                <div className="bg-[#F0F4FF] rounded-xl p-3 mr-4">
-                  <Users className="h-6 w-6 text-[#8F6ED5]" />
+                <div className="bg-[#EBF8FF] rounded-xl p-3 mr-4 group-hover:scale-110 transition-transform duration-300">
+                  <Users className="h-6 w-6 text-[#0088f5]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1A1A1A]">Производство</h3>
+                <h3 className="text-xl font-bold text-[#0f172a]">Производство</h3>
               </div>
-              <p className="text-[#6B6B6B] mb-4">Комплексное страхование оборудования, зданий и ответственности перед сотрудниками.</p>
+              <p className="text-[#64748b] mb-4">Комплексное страхование оборудования, зданий и ответственности перед сотрудниками.</p>
               <ul className="space-y-2">
-                <li className="flex items-center text-[#6B6B6B]">
-                  <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
+                <li className="flex items-center text-[#64748b]">
+                  <CheckCircle2 className="h-4 w-4 text-[#0088f5] mr-2" />
                   <span>Страхование оборудования</span>
                 </li>
-                <li className="flex items-center text-[#6B6B6B]">
-                  <CheckCircle2 className="h-4 w-4 text-[#8F6ED5] mr-2" />
+                <li className="flex items-center text-[#64748b]">
+                  <CheckCircle2 className="h-4 w-4 text-[#0088f5] mr-2" />
                   <span>Страхование от несчастных случаев</span>
                 </li>
               </ul>
@@ -439,25 +435,41 @@ export default function InsurancePage() {
       </section>
 
       {/* CTA/Contact Section */}
-      <section className="py-20 relative overflow-hidden bg-[#181C36]">
-        {/* Геометрические элементы на фоне */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none select-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[600px] transform rotate-[-10deg] translate-x-1/4 translate-y-[-10%] bg-gradient-to-br from-[#8F6ED5] via-[#6B4FD5] to-[#FDFCFB] opacity-40 rounded-[40px] transition-all duration-1000"></div>
-          <div className="absolute top-1/3 right-0 w-[600px] h-[400px] transform rotate-[-15deg] translate-x-1/3 bg-gradient-to-br from-[#7F5EC5] via-[#5B3FD5] to-[#FDFCFB] opacity-30 rounded-[40px] transition-all duration-1000"></div>
-          <div className="absolute bottom-10 right-1/4 w-[300px] h-[200px] transform rotate-[-5deg] bg-gradient-to-br from-[#6B4FD5] via-[#4B2FD5] to-[#FDFCFB] opacity-20 rounded-[40px] transition-all duration-1000"></div>
-                </div>
-        <div className="container max-w-7xl mx-auto px-4 relative z-10">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="w-full md:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Получите индивидуальное предложение для вашего бизнеса</h2>
-              <p className="text-lg text-white/80 mb-2">Оставьте заявку, и наш специалист свяжется с вами</p>
-              <p className="text-lg text-white/80 mb-8">в течение 15 минут для консультации и подбора оптимального страхового решения.</p>
-              </div>
-            <div className="w-full md:w-1/2 flex justify-center">
-              <InsuranceForm />
+      <section className="relative isolate overflow-hidden bg-[#0f172a]">
+        <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Получите индивидуальное предложение для вашего бизнеса
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
+              Оставьте заявку, и наш специалист свяжется с вами в течение 15 минут для консультации и подбора оптимального страхового решения.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://wa.me/77070607140?text=Здравствуйте!%20Интересует%20страхование%20ТОО.%20Можно%20узнать%20условия?"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white px-8 py-4 rounded-2xl text-base font-medium shadow-[0_8px_30px_rgba(0,136,245,0.3)] hover:shadow-[0_12px_40px_rgba(0,136,245,0.5)] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <MessageCircle className="w-5 h-5" />
+                Получить консультацию
+              </a>
             </div>
           </div>
         </div>
+        <svg
+          viewBox="0 0 1024 1024"
+          className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+          aria-hidden="true"
+        >
+          <circle cx="512" cy="512" r="512" fill="url(#gradient)" fillOpacity="0.7" />
+          <defs>
+            <radialGradient id="gradient">
+              <stop stopColor="#0088f5" />
+              <stop offset="1" stopColor="#0979ff" />
+            </radialGradient>
+          </defs>
+        </svg>
       </section>
     </div>
   )

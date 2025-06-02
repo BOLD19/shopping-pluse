@@ -4,10 +4,10 @@ import { ButtonProps } from '@/types';
 import { Loader2 } from 'lucide-react';
 
 const buttonVariants = {
-  primary: 'bg-gradient-to-r from-[#8F6ED5] to-[#7F5EC5] text-white shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:from-[#7F5EC5] hover:to-[#6F4EC5]',
+  primary: 'bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:from-[#0979ff] hover:to-[#0066cc]',
   secondary: 'bg-[#E0FF4F] text-[#1A1A1A] hover:bg-[#D0EF3F] shadow-lg shadow-lime-500/25 hover:shadow-lime-500/40',
-  outline: 'border-2 border-[#8F6ED5] text-[#8F6ED5] hover:bg-[#F0F4FF] hover:border-[#7F5EC5]',
-  ghost: 'text-[#8F6ED5] hover:bg-[#F0F4FF] hover:text-[#7F5EC5]',
+  outline: 'border-2 border-[#0088f5] text-[#0088f5] hover:bg-[#EBF8FF] hover:border-[#0979ff]',
+  ghost: 'text-[#0088f5] hover:bg-[#EBF8FF] hover:text-[#0979ff]',
 };
 
 const buttonSizes = {
@@ -35,7 +35,7 @@ export const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={isDisabled}
       className={cn(
-        'font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#8F6ED5] focus:ring-offset-2 inline-flex items-center justify-center gap-2',
+        'font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#0088f5] focus:ring-offset-2 inline-flex items-center justify-center gap-2',
         buttonVariants[variant],
         buttonSizes[size],
         isDisabled && 'opacity-60 cursor-not-allowed pointer-events-none',

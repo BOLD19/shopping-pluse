@@ -25,9 +25,9 @@ import {
   ChevronDown, 
   ChevronUp, 
   Send,
-  MessageCircle
+  MessageCircle,
+  ArrowRight
 } from 'lucide-react'
-import BnplConditionsBlock from '../../components/BnplConditionsBlock'
 
 export default function RegisterCompanyPage() {
   const [formData, setFormData] = useState({
@@ -76,28 +76,26 @@ export default function RegisterCompanyPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden bg-[#181C36] h-[568px] py-8 sm:py-0">
-        {/* Геометрические элементы */}
-        <div className="absolute inset-0 w-full h-full pointer-events-none select-none">
-          <div className="absolute top-0 right-0 w-[800px] h-[600px] transform rotate-[-10deg] translate-x-1/4 translate-y-[-10%] bg-gradient-to-br from-[#8F6ED5] via-[#6B4FD5] to-[#FDFCFB] opacity-40 rounded-[40px] transition-all duration-1000"></div>
-          <div className="absolute top-1/3 right-0 w-[600px] h-[400px] transform rotate-[-15deg] translate-x-1/3 bg-gradient-to-br from-[#7F5EC5] via-[#5B3FD5] to-[#FDFCFB] opacity-30 rounded-[40px] transition-all duration-1000"></div>
-          <div className="absolute bottom-10 right-1/4 w-[300px] h-[200px] transform rotate-[-5deg] bg-gradient-to-br from-[#6B4FD5] via-[#4B2FD5] to-[#FDFCFB] opacity-20 rounded-[40px] transition-all duration-1000"></div>
+      <section className="relative isolate pt-32 pb-20">
+        {/* Radial gradient background */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(80%_70%_at_50%_30%,_var(--tw-gradient-stops))] from-[#EBF8FF] via-white to-white opacity-90"></div>
         </div>
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full relative z-10 flex items-center min-h-[80vh] sm:min-h-[60vh]">
-          <div className="w-full md:max-w-[800px] lg:max-w-[900px] text-left mt-12">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight text-left break-words px-4">
-              Регистрация ТОО<br />
-              <span className="text-white">бесплатно за 1 день</span>
+
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-[#0f172a] sm:text-6xl">
+              Регистрация ТОО за 1 день
               </h1>
-            <div className="text-sm sm:text-lg text-white mb-8 max-w-lg text-left px-4">
+            <p className="mt-6 text-lg text-[#64748b]">
                 Мы подготовим документы, подберем налоговый режим и откроем бизнес за вас — быстро и надёжно
-            </div>
-            <div className="flex gap-4 px-4">
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="https://wa.me/77474288095?text=Здравствуйте!%20Хочу%20открыть%20ТОО,%20нужна%20консультация."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-[#8F6ED5] border-2 border-[#8F6ED5] px-4 py-3 text-sm rounded-lg sm:px-8 sm:py-4 sm:text-base sm:rounded-xl hover:bg-[#F0F4FF] transition-all duration-200"
+                className="bg-white text-[#0f172a] px-8 py-4 rounded-2xl text-base font-medium shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-[#0088f5]/20 hover:border-[#0088f5]/40 transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <MessageCircle size={20} />
                 Консультация
@@ -106,9 +104,9 @@ export default function RegisterCompanyPage() {
                 href="https://wa.me/77474288095?text=Здравствуйте!%20Хочу%20открыть%20ТОО%20через%20вас.%20Какой%20следующий%20шаг?"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#8F6ED5] text-white px-4 py-3 text-sm rounded-lg sm:px-8 sm:py-4 sm:text-base sm:rounded-xl hover:bg-[#7F5EC5] transition-all duration-200"
+                className="bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white px-8 py-4 rounded-2xl text-base font-medium shadow-[0_8px_30px_rgba(0,136,245,0.3)] hover:shadow-[0_12px_40px_rgba(0,136,245,0.5)] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
               >
-                <MessageCircle size={20} />
+                <ArrowRight size={20} />
                 Открыть компанию
               </a>
             </div>
@@ -120,10 +118,10 @@ export default function RegisterCompanyPage() {
       <div className="py-24 sm:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-[#1A1A1A] sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] sm:text-4xl">
               Что входит в услугу
             </h2>
-            <p className="mt-6 text-lg text-[#6B6B6B]">
+            <p className="mt-6 text-lg text-[#64748b]">
               Полностью берем на себя процесс регистрации ТОО,<br />от подготовки документов до постановки на учет
             </p>
           </div>
@@ -131,31 +129,31 @@ export default function RegisterCompanyPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {[
               {
-                icon: <FileText className="h-6 w-6 text-[#8F6ED5]" />,
+                icon: <FileText className="h-6 w-6 text-[#0088f5]" />,
                 title: 'Подготовим\nвсе документы',
                 description: 'Устав, учредительный\nдоговор и все заявления'
               },
               {
-                icon: <BarChart className="h-6 w-6 text-[#8F6ED5]" />,
+                icon: <BarChart className="h-6 w-6 text-[#0088f5]" />,
                 title: 'Выберем ОКЭД\nи налоговый режим',
                 description: 'Оптимальный вариант\nдля вашего бизнеса'
               },
               {
-                icon: <CreditCard className="h-6 w-6 text-[#8F6ED5]" />,
+                icon: <CreditCard className="h-6 w-6 text-[#0088f5]" />,
                 title: 'Поставим ТОО\nна учёт по НДС',
                 description: 'Если это необходимо\nдля вашего бизнеса'
               },
               {
-                icon: <Calculator className="h-6 w-6 text-[#8F6ED5]" />,
+                icon: <Calculator className="h-6 w-6 text-[#0088f5]" />,
                 title: 'Закроем вопросы\nпо налогам',
                 description: 'Первый месяц\nбухгалтерия бесплатно'
               },
             ].map((item, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 max-w-xs w-full mx-auto flex flex-col items-center text-center">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#F0F4FF] mb-4">
+              <div key={index} className="group bg-white rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 max-w-xs w-full mx-auto">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#EBF8FF] mb-4 group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-medium text-[#1A1A1A] mb-2">
+                <h3 className="text-lg font-medium text-[#0f172a] mb-2">
                   {item.title.split('\n').map((line, i) => (
                     <React.Fragment key={i}>
                       {line}
@@ -163,7 +161,7 @@ export default function RegisterCompanyPage() {
                     </React.Fragment>
                   ))}
                 </h3>
-                <p className="text-sm text-[#6B6B6B]">
+                <p className="text-sm text-[#64748b]">
                   {item.description.split('\n').map((line, i) => (
                     <React.Fragment key={i}>
                       {line}
@@ -178,13 +176,13 @@ export default function RegisterCompanyPage() {
       </div>
 
       {/* Вы получите */}
-      <div className="py-24 sm:py-32 bg-[#FDFCFB]">
+      <div className="py-24 sm:py-32 bg-[#f8fafc]">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-[#1A1A1A] sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] sm:text-4xl">
               Вы получите
             </h2>
-            <p className="mt-6 text-lg text-[#6B6B6B]">
+            <p className="mt-6 text-lg text-[#64748b]">
               Полноценный рабочий бизнес с поддержкой на каждом этапе,<br />а не просто документы
             </p>
           </div>
@@ -192,34 +190,34 @@ export default function RegisterCompanyPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                icon: <Building className="h-8 w-8 text-[#8F6ED5]" />,
+                icon: <Building className="h-8 w-8 text-[#0088f5]" />,
                 title: "Готовое ТОО",
                 description: 'Зарегистрированное юридическое лицо со всеми документами, печатью, электронной подписью'
               },
               {
-                icon: <Clock className="h-8 w-8 text-[#8F6ED5]" />,
+                icon: <Clock className="h-8 w-8 text-[#0088f5]" />,
                 title: "Онлайн-бухгалтерию с напоминаниями",
                 description: 'Доступ к сервису автоматической бухгалтерии, который напомнит о сроках сдачи отчетности и уплаты налогов'
               },
               {
-                icon: <FileSpreadsheet className="h-8 w-8 text-[#8F6ED5]" />,
+                icon: <FileSpreadsheet className="h-8 w-8 text-[#0088f5]" />,
                 title: "Шаблоны договоров и актов",
                 description: 'Готовые документы для ведения бизнеса: договоры, акты, счета, накладные и другие необходимые формы'
               },
               {
-                icon: <FolderOpen className="h-8 w-8 text-[#8F6ED5]" />,
+                icon: <FolderOpen className="h-8 w-8 text-[#0088f5]" />,
                 title: "Доступ ко всем документам",
                 description: 'Круглосуточный доступ ко всем документам компании в личном кабинете: учредительные и бухгалтерские документы'
               },
             ].map((item, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
-                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-[#F0F4FF] mb-6">
+              <div key={index} className="group bg-white rounded-2xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300">
+                <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-[#EBF8FF] mb-6 group-hover:scale-110 transition-transform duration-300">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-[#1A1A1A] mb-3">
+                <h3 className="text-xl font-semibold text-[#0f172a] mb-3">
                   {item.title}
                 </h3>
-                <p className="text-[#6B6B6B]">
+                <p className="text-[#64748b]">
                   {item.description}
                 </p>
               </div>
@@ -230,28 +228,27 @@ export default function RegisterCompanyPage() {
 
       {/* Поддержим на каждом этапе */}
       <div className="py-24 sm:py-32 bg-white relative overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute right-0 top-0 -z-10 transform translate-x-1/3 -translate-y-1/4">
-          <div className="h-96 w-96 rounded-full bg-[#E0FF4F] opacity-20 blur-3xl"></div>
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-right skew-x-[-30deg] bg-white shadow-xl shadow-[#0088f5]/10 ring-1 ring-[#0088f5]/10 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
         </div>
         
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
+            <div>
               <div className="relative mx-auto w-full max-w-md">
-                <div className="aspect-[4/3] w-full bg-[#F0F4FF] rounded-xl overflow-hidden relative">
+                <div className="aspect-[4/3] w-full bg-[#EBF8FF] rounded-xl overflow-hidden relative">
                   {/* Decorative elements */}
-                  <div className="absolute top-6 left-6 w-16 h-16 bg-[#8F6ED5] opacity-20 rounded-full"></div>
-                  <div className="absolute top-12 right-12 w-8 h-8 bg-[#E0FF4F] opacity-40 rounded-full"></div>
+                  <div className="absolute top-6 left-6 w-16 h-16 bg-[#0088f5] opacity-20 rounded-full"></div>
+                  <div className="absolute top-12 right-12 w-8 h-8 bg-[#0088f5] opacity-40 rounded-full"></div>
                   
                   {/* Chat interface mockup */}
                   <div className="absolute inset-4 bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
                     <div className="p-4 border-b border-gray-100 flex justify-between items-center">
                       <div className="flex items-center">
-                        <div className="w-8 h-8 rounded-full bg-[#8F6ED5] flex items-center justify-center text-white font-bold">P</div>
+                        <div className="w-8 h-8 rounded-full bg-[#0088f5] flex items-center justify-center text-white font-bold">P</div>
                         <div className="ml-2">
                           <div className="text-sm font-semibold">Персональный менеджер</div>
-                          <div className="text-xs text-[#6B6B6B]">онлайн</div>
+                          <div className="text-xs text-[#64748b]">онлайн</div>
                         </div>
                       </div>
                       <div className="w-2 h-2 rounded-full bg-green-500"></div>
@@ -259,24 +256,24 @@ export default function RegisterCompanyPage() {
                     
                     <div className="flex-1 p-4 overflow-y-auto">
                       <div className="mb-3 ml-8 max-w-[80%]">
-                        <div className="bg-[#F9F9F9] rounded-tl-xl rounded-tr-xl rounded-br-xl p-3">
+                        <div className="bg-[#f8fafc] rounded-tl-xl rounded-tr-xl rounded-br-xl p-3">
                           <p className="text-xs">Здравствуйте! Я ваш персональный менеджер по регистрации ТОО. Как я могу вам помочь?</p>
                         </div>
-                        <div className="text-xs text-[#6B6B6B] mt-1">12:42</div>
+                        <div className="text-xs text-[#64748b] mt-1">12:42</div>
                       </div>
                       
                       <div className="mb-3 mr-8 max-w-[80%] ml-auto">
-                        <div className="bg-[#F0F4FF] rounded-tl-xl rounded-tr-xl rounded-bl-xl p-3">
+                        <div className="bg-[#EBF8FF] rounded-tl-xl rounded-tr-xl rounded-bl-xl p-3">
                           <p className="text-xs">У меня вопрос по налоговому режиму. Какой лучше выбрать для интернет-магазина?</p>
                         </div>
-                        <div className="text-xs text-[#6B6B6B] mt-1 text-right">12:45</div>
+                        <div className="text-xs text-[#64748b] mt-1 text-right">12:45</div>
                       </div>
                       
                       <div className="mb-3 ml-8 max-w-[80%]">
-                        <div className="bg-[#F9F9F9] rounded-tl-xl rounded-tr-xl rounded-br-xl p-3">
+                        <div className="bg-[#f8fafc] rounded-tl-xl rounded-tr-xl rounded-br-xl p-3">
                           <p className="text-xs">Для интернет-магазина оптимально подойдёт упрощенный режим. Давайте обсудим детали вашего бизнеса, и я предложу наилучший вариант.</p>
                         </div>
-                        <div className="text-xs text-[#6B6B6B] mt-1">12:47</div>
+                        <div className="text-xs text-[#64748b] mt-1">12:47</div>
                       </div>
                     </div>
                     
@@ -284,9 +281,9 @@ export default function RegisterCompanyPage() {
                       <input
                         type="text"
                         placeholder="Напишите сообщение..."
-                        className="flex-1 bg-[#F9F9F9] rounded-lg px-4 py-2 text-sm focus:outline-none"
+                        className="flex-1 bg-[#f8fafc] rounded-lg px-4 py-2 text-sm focus:outline-none"
                       />
-                      <button className="ml-2 h-8 w-8 flex items-center justify-center rounded-full bg-[#8F6ED5]">
+                      <button className="ml-2 h-8 w-8 flex items-center justify-center rounded-full bg-[#0088f5]">
                         <Send className="h-4 w-4 text-white" />
                       </button>
                     </div>
@@ -295,43 +292,43 @@ export default function RegisterCompanyPage() {
               </div>
             </div>
             
-            <div className="order-1 lg:order-2">
-              <h2 className="text-3xl font-bold tracking-tight text-[#1A1A1A] sm:text-4xl mb-8">
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] sm:text-4xl mb-8">
                 Поддержим на каждом этапе
               </h2>
               
               <div className="space-y-6">
                 {[
                   {
-                    icon: <MessageSquare className="h-6 w-6 text-[#8F6ED5]" />,
+                    icon: <MessageSquare className="h-6 w-6 text-[#0088f5]" />,
                     title: "Персональный менеджер",
                     description: 'Выделенный специалист будет вести ваш проект от начала до конца, решая все вопросы максимально быстро'
                   },
                   {
-                    icon: <HeadphonesIcon className="h-6 w-6 text-[#8F6ED5]" />,
+                    icon: <HeadphonesIcon className="h-6 w-6 text-[#0088f5]" />,
                     title: "Чат без ожиданий",
                     description: 'Средняя скорость ответа на сообщения — 5 минут. Вам не придётся ждать часами, чтобы получить консультацию'
                   },
                   {
-                    icon: <Calculator className="h-6 w-6 text-[#8F6ED5]" />,
+                    icon: <Calculator className="h-6 w-6 text-[#0088f5]" />,
                     title: "Вся бухгалтерия на нас",
                     description: 'Мы поможем с начальными настройками бухгалтерии, первичной документацией и отчетностью'
                   },
                   {
-                    icon: <Shield className="h-6 w-6 text-[#8F6ED5]" />,
+                    icon: <Shield className="h-6 w-6 text-[#0088f5]" />,
                     title: "Поддержка по налогам и отчётности",
                     description: 'Юристы и бухгалтеры проконсультируют по всем вопросам касательно налогов и отчетности'
                   },
                 ].map((item, index) => (
-                  <div key={index} className="flex gap-4">
-                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-[#F0F4FF]">
+                  <div key={index} className="group flex gap-4">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-[#EBF8FF] group-hover:scale-110 transition-transform duration-300">
                       {item.icon}
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-[#1A1A1A]">
+                      <h3 className="text-lg font-semibold text-[#0f172a]">
                         {item.title}
                       </h3>
-                      <p className="mt-1 text-[#6B6B6B]">
+                      <p className="mt-1 text-[#64748b]">
                         {item.description}
                       </p>
                     </div>
@@ -344,13 +341,13 @@ export default function RegisterCompanyPage() {
       </div>
 
       {/* FAQ */}
-      <div className="py-24 sm:py-32 bg-white">
+      <div className="py-24 sm:py-32 bg-[#f8fafc]">
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-[#1A1A1A] sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-[#0f172a] sm:text-4xl">
               Часто задаваемые вопросы
             </h2>
-            <p className="mt-6 text-lg text-[#6B6B6B]">
+            <p className="mt-6 text-lg text-[#64748b]">
               Ответы на самые распространенные вопросы о регистрации ТОО
             </p>
           </div>
@@ -365,17 +362,17 @@ export default function RegisterCompanyPage() {
                   onClick={() => toggleFaq(index)}
                   className="flex w-full items-center justify-between px-6 py-5 text-left"
                 >
-                  <span className="text-lg font-medium text-[#1A1A1A]">{faq.question}</span>
+                  <span className="text-lg font-medium text-[#0f172a]">{faq.question}</span>
                   {openFaq === index ? (
-                    <ChevronUp className="h-5 w-5 text-[#8F6ED5]" />
+                    <ChevronUp className="h-5 w-5 text-[#0088f5]" />
                   ) : (
-                    <ChevronDown className="h-5 w-5 text-[#6B6B6B]" />
+                    <ChevronDown className="h-5 w-5 text-[#64748b]" />
                   )}
                 </button>
                 <div 
                   className={`px-6 pb-5 transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
                 >
-                  <p className="text-[#6B6B6B]">{faq.answer}</p>
+                  <p className="text-[#64748b]">{faq.answer}</p>
                 </div>
               </div>
             ))}
@@ -383,8 +380,43 @@ export default function RegisterCompanyPage() {
         </div>
       </div>
 
-      {/* Блок из страницы bnpl */}
-      <BnplConditionsBlock />
+      {/* CTA Section */}
+      <div className="relative isolate overflow-hidden bg-[#0f172a]">
+        <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              Начните свой бизнес уже сегодня
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
+              Зарегистрируйте ТОО за 1 день и получите полностью готовый к работе бизнес с поддержкой на каждом этапе
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://wa.me/77474288095?text=Здравствуйте!%20Хочу%20открыть%20ТОО%20через%20вас.%20Какой%20следующий%20шаг?"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white px-8 py-4 rounded-2xl text-base font-medium shadow-[0_8px_30px_rgba(0,136,245,0.3)] hover:shadow-[0_12px_40px_rgba(0,136,245,0.5)] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <ArrowRight size={20} />
+                Открыть компанию
+              </a>
+            </div>
+          </div>
+        </div>
+        <svg
+          viewBox="0 0 1024 1024"
+          className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+          aria-hidden="true"
+        >
+          <circle cx="512" cy="512" r="512" fill="url(#gradient)" fillOpacity="0.7" />
+          <defs>
+            <radialGradient id="gradient">
+              <stop stopColor="#0088f5" />
+              <stop offset="1" stopColor="#0979ff" />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
     </div>
   )
 }

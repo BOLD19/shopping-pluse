@@ -6,7 +6,7 @@ import { Mail, MessageCircle, Instagram } from 'lucide-react'
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1f1f24] text-white">
+    <footer className="bg-[#0f172a] text-white">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
           {/* Logo and description */}
@@ -26,7 +26,7 @@ export default function Footer() {
               <h3 className="text-sm font-semibold text-white">О компании</h3>
               <ul className="mt-6 space-y-4">
                 <li>
-                  <Link href="/digital-branch" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link href="/about-us" className="text-sm text-gray-300 hover:text-white transition-colors">
                     О нас
                   </Link>
                 </li>
@@ -36,12 +36,12 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/digital-branch#trust" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link href="/about-us#trust" className="text-sm text-gray-300 hover:text-white transition-colors">
                     Резидент Astana Hub
                   </Link>
                 </li>
                 <li>
-                  <Link href="/digital-branch" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  <Link href="/about-us" className="text-sm text-gray-300 hover:text-white transition-colors">
                     Поддержка
                   </Link>
                 </li>
@@ -58,7 +58,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link href="/bnpl" className="text-sm text-gray-300 hover:text-white transition-colors">
-                    BNPL
+                    Рассрочка QR
                   </Link>
                 </li>
                 <li>

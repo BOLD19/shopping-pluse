@@ -3,7 +3,7 @@
 import { useHomePage } from '@/hooks/useHomePage';
 import { 
   HomeHero, 
-  HomeServices,
+  HomeServices, 
   HomeHowItWorks, 
   HomeTrust, 
   HomeFAQ

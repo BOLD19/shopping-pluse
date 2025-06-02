@@ -27,7 +27,7 @@ export default function Header() {
           
           <nav className="hidden md:flex items-center space-x-10">
             <div className="relative group">
-              <Link href="/services" className="text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors flex items-center gap-1">
+              <Link href="/services" className="text-[#4A4A4A] text-sm hover:text-[#0088f5] transition-colors flex items-center gap-1">
                 Сервисы
                 <ChevronDown className="w-4 h-4" />
               </Link>
@@ -39,23 +39,13 @@ export default function Header() {
                       <h3 className="text-[#1A1A1A] font-bold mb-4">Банковское обслуживание</h3>
                       <ul className="space-y-3">
                         <li>
-                          <Link href="/account" className="text-[#4A4A4A] hover:text-[#8F6ED5] transition-colors">
+                          <Link href="/account" className="text-[#4A4A4A] hover:text-[#0088f5] transition-colors">
                             Открытие счета
                           </Link>
                         </li>
                         <li>
-                          <Link href="/tariffs" className="text-[#4A4A4A] hover:text-[#8F6ED5] transition-colors">
-                            Тарифы
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/banking" className="text-[#4A4A4A] hover:text-[#8F6ED5] transition-colors">
-                            Мобильный и интернет-банк
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/card" className="text-[#4A4A4A] hover:text-[#8F6ED5] transition-colors">
-                            Бизнес карта
+                          <Link href="/card" className="text-[#4A4A4A] hover:text-[#0088f5] transition-colors">
+                            Бизнес-карта
                           </Link>
                         </li>
                       </ul>
@@ -64,29 +54,24 @@ export default function Header() {
                       <h3 className="text-[#1A1A1A] font-bold mb-4">Сервисы</h3>
                       <ul className="space-y-3">
                         <li>
-                          <Link href="/bnpl" className="text-[#4A4A4A] hover:text-[#8F6ED5] transition-colors">
-                            Рассрочка (BNPL)
+                          <Link href="/bnpl" className="text-[#4A4A4A] hover:text-[#0088f5] transition-colors">
+                            Рассрочка QR
                           </Link>
                         </li>
                         <li>
-                          <Link href="/register-company" className="text-[#4A4A4A] hover:text-[#8F6ED5] transition-colors">
-                            Регистрация ТОО
+                          <Link href="/shopping" className="text-[#4A4A4A] hover:text-[#0088f5] transition-colors">
+                            E-commerce
                           </Link>
                         </li>
                         <li>
-                          <Link href="/insurance" className="text-[#4A4A4A] hover:text-[#8F6ED5] transition-colors">
+                          <Link href="/insurance" className="text-[#4A4A4A] hover:text-[#0088f5] transition-colors">
                             Страхование
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/shopping" className="text-[#4A4A4A] hover:text-[#8F6ED5] transition-colors">
-                            Pluse.Shopping
                           </Link>
                         </li>
                         <li>
                           <div className="text-[#4A4A4A] opacity-50 flex items-center gap-1">
                             Бухгалтерия
-                            <span className="text-xs bg-[#E0FF4F] text-[#1A1A1A] px-2 py-0.5 rounded">скоро</span>
+                            <span className="text-xs bg-[#0088f5] text-white px-2 py-0.5 rounded">скоро</span>
                           </div>
                         </li>
                       </ul>
@@ -97,23 +82,25 @@ export default function Header() {
             </div>
             <Link 
               href="/partners" 
-              className={`text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors ${
-                pathname === "/partners" ? 'text-[#8F6ED5]' : ''
+              className={`text-[#4A4A4A] text-sm hover:text-[#0088f5] transition-colors ${
+                pathname === "/partners" ? 'text-[#0088f5]' : ''
               }`}
             >
-              Партнёрам
+              Агентам
             </Link>
             <Link 
-              href="/digital-branch" 
-              className={`text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors ${
-                pathname === "/digital-branch" ? 'text-[#8F6ED5]' : ''
+              href="/about-us" 
+              className={`text-[#4A4A4A] text-sm hover:text-[#0088f5] transition-colors ${
+                pathname === "/about-us" ? 'text-[#0088f5]' : ''
               }`}
             >
-              Цифровой филиал
+              О нас
             </Link>
             <Link 
-              href="/cabinet" 
-              className="bg-[#8F6ED5] text-white px-5 py-2.5 rounded-xl text-sm font-medium hover:shadow-lg transition-all duration-200"
+              href="https://bnpl.pluse.kz/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-2.5 text-sm font-medium text-white bg-[#0f172a] rounded-xl shadow-[0_4px_15px_rgba(15,23,42,0.2)] hover:shadow-[0_4px_15px_rgba(15,23,42,0.4)] hover:scale-105 transition-all duration-300"
             >
               Кабинет
             </Link>
@@ -134,50 +121,47 @@ export default function Header() {
           <div className="container mx-auto px-6 py-4 space-y-4">
             <div className="space-y-3">
               <h3 className="text-[#1A1A1A] font-bold text-sm">Банковское обслуживание</h3>
-              <Link href="/account" className="block text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors pl-4">
+              <Link href="/account" className="block text-[#4A4A4A] text-sm hover:text-[#0088f5] transition-colors pl-4">
                 Открытие счета
               </Link>
-              <Link href="/tariffs" className="block text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors pl-4">
-                Тарифы
-              </Link>
-              <Link href="/banking" className="block text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors pl-4">
-                Мобильный и интернет-банк
-              </Link>
-              <Link href="/card" className="block text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors pl-4">
-                Бизнес карта
+              <Link href="/card" className="block text-[#4A4A4A] text-sm hover:text-[#0088f5] transition-colors pl-4">
+                Бизнес-карта
               </Link>
             </div>
             
             <div className="space-y-3 pt-4 border-t border-gray-100">
               <h3 className="text-[#1A1A1A] font-bold text-sm">Сервисы</h3>
-              <Link href="/bnpl" className="block text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors pl-4">
-                Рассрочка (BNPL)
+              <Link href="/bnpl" className="block text-[#4A4A4A] text-sm hover:text-[#0088f5] transition-colors pl-4">
+                Рассрочка QR
               </Link>
-              <Link href="/register-company" className="block text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors pl-4">
-                Регистрация ТОО
+              <Link href="/shopping" className="block text-[#4A4A4A] text-sm hover:text-[#0088f5] transition-colors pl-4">
+                E-commerce
               </Link>
-              <Link href="/insurance" className="block text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors pl-4">
+              <Link href="/insurance" className="block text-[#4A4A4A] text-sm hover:text-[#0088f5] transition-colors pl-4">
                 Страхование
               </Link>
-              <Link href="/shopping" className="block text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors pl-4">
-                Pluse.Shopping
-          </Link>
+              <div className="block text-[#4A4A4A] text-sm pl-4 opacity-50 flex items-center gap-1">
+                Бухгалтерия
+                <span className="text-xs bg-[#0088f5] text-white px-2 py-0.5 rounded">скоро</span>
+              </div>
             </div>
             
             <div className="space-y-3 pt-4 border-t border-gray-100">
-              <Link href="/partners" className="block text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors">
-            Партнёрам
-          </Link>
-              <Link href="/digital-branch" className="block text-[#4A4A4A] text-sm hover:text-[#8F6ED5] transition-colors">
-            Цифровой филиал
+              <Link href="/partners" className="block text-[#4A4A4A] text-sm hover:text-[#0088f5] transition-colors">
+                Агентам
               </Link>
-              <Link
-            href="/cabinet" 
-                className="inline-block bg-[#8F6ED5] text-white px-5 py-2.5 rounded-xl text-sm font-medium hover:shadow-lg transition-all duration-200"
+              <Link href="/about-us" className="block text-[#4A4A4A] text-sm hover:text-[#0088f5] transition-colors">
+                О нас
+              </Link>
+              <Link 
+                href="https://bnpl.pluse.kz/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-[#4A4A4A] text-sm hover:text-[#0088f5] transition-colors font-medium"
               >
-            Кабинет
+                Кабинет
               </Link>
-        </div>
+            </div>
           </div>
         </div>
       )}

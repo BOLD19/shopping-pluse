@@ -1,25 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { UserPlus, Layers, Rocket } from 'lucide-react';
 
 export const HomeHowItWorks: React.FC = () => {
   const steps = [
     {
       id: 1,
-      icon: UserPlus,
       title: 'Зарегистрируйтесь и откройте счёт',
       description: 'Создайте аккаунт и откройте расчётный счёт онлайн за 5 минут.'
     },
     {
       id: 2,
-      icon: Layers,
       title: 'Выберите нужные инструменты',
       description: 'Подключите рассрочку, интернет-магазин, бухгалтерию и другие сервисы.'
     },
     {
       id: 3,
-      icon: Rocket,
       title: 'Развивайте бизнес — мы помогаем',
       description: 'Pluse.kz автоматизирует рутину, а вы фокусируетесь на росте.'
     }
@@ -50,20 +46,15 @@ export const HomeHowItWorks: React.FC = () => {
               >
                 <div className="flex items-start gap-6">
                   <div className="relative">
-                    <div className="flex h-12 w-12 items-center justify-center">
-                      <step.icon className="h-8 w-8 text-[#0088f5]" strokeWidth={1.5} />
+                    <div className="flex h-10 w-10 items-center justify-center bg-[#0088f5] text-white rounded-full text-sm font-bold shadow-lg">
+                      {step.id}
                     </div>
                   </div>
                   <div>
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="text-sm font-bold text-[#0088f5] bg-[#0088f5]/10 px-2 py-1 rounded-lg">
-                        {step.id}
-                      </span>
-                      <h3 className="text-xl font-semibold text-[#0f172a]">
-                        {step.title}
-                      </h3>
-                    </div>
-                    <p className="mt-2 text-[#64748b]">
+                    <h3 className="text-xl font-semibold text-[#0f172a] mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-[#64748b]">
                       {step.description}
                     </p>
                   </div>

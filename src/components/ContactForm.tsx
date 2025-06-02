@@ -85,14 +85,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           <input
             type="checkbox"
             id="privacy"
-            className="mr-2 rounded border-gray-300 text-[#8F6ED5] focus:ring-[#8F6ED5]"
+            className="mr-2 rounded border-gray-300 text-[#0088f5] focus:ring-[#0088f5]"
             required
           />
           <label htmlFor="privacy" className="text-xs text-gray-500">
             Я согласен с{' '}
             <a 
               href="/privacy" 
-              className="underline text-[#8F6ED5] hover:text-[#7F5EC5]"
+              className="underline text-[#0088f5] hover:text-[#0979ff]"
               target="_blank"
               rel="noopener noreferrer"
             >

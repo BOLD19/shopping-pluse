@@ -34,17 +34,11 @@ export const HomeFAQ: React.FC<HomeFAQProps> = ({ expandedFaqItems, toggleFaqIte
               >
                 <span className="text-lg font-medium text-[#0f172a] pr-8">{faq.question}</span>
                 <div className="flex-shrink-0">
-                  <div 
-                    className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200 ${
-                      expandedFaqItems.has(index) ? 'bg-[#0088f5]' : 'bg-gradient-to-br from-[#0088f5]/10 to-[#0979ff]/10'
+                  <ChevronDown
+                    className={`h-5 w-5 transform transition-transform duration-200 ${
+                      expandedFaqItems.has(index) ? 'rotate-180 text-[#0088f5]' : 'text-[#0088f5]'
                     }`}
-                  >
-                    <ChevronDown
-                      className={`h-5 w-5 transform transition-transform duration-200 ${
-                        expandedFaqItems.has(index) ? 'rotate-180 text-white' : 'text-[#0088f5]'
-                      }`}
-                    />
-                  </div>
+                  />
                 </div>
               </motion.button>
               <AnimatePresence initial={false}>

@@ -1,43 +1,100 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { MessageCircle } from 'lucide-react';
+import Image from 'next/image';
 
 export default function BnplApprovalBlock() {
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 className="text-3xl font-bold leading-tight mb-0 text-[#1A1A1A]">
-          Повышаем шанс одобрения<br />рассрочки до 60%
-        </h2>
+    <section className="py-20 bg-[#FDFCFB] relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 bg-grid-blue/[0.02] bg-[length:20px_20px]" />
+      <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] rounded-full bg-[#0088f5]/10 blur-[100px] pointer-events-none" />
+      
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full items-center">
-          <div className="max-w-xl text-left z-10">
-            <p className="text-base leading-normal mb-0 text-[#1A1A1A]/80">
-              Даже если раньше клиенту отказывали, свежая банковская выписка через Pluse.kz помогает показать реальную платёжеспособность.
-            </p>
-            <p className="text-base leading-normal mb-8 text-[#1A1A1A]/80">
-              Подгрузить выписку можно только через наш сервис.
-            </p>
-            <a
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-xl text-left z-10"
+          >
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-3xl font-bold leading-tight mb-6 text-[#0f172a]"
+            >
+              Повышаем шанс одобрения<br />
+              <span className="text-[#0088f5] relative inline-block">
+                рассрочки до 60%
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  whileInView={{ scaleX: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  className="absolute bottom-1 left-0 right-0 h-2 bg-[#0979ff] opacity-20 -z-10"
+                />
+              </span>
+            </motion.h2>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <p className="text-lg leading-relaxed mb-4 text-[#64748b]">
+                Даже если раньше клиенту отказывали, свежая банковская выписка через Pluse.kz помогает показать реальную платёжеспособность.
+              </p>
+              <p className="text-lg leading-relaxed mb-8 text-[#64748b]">
+                Подгрузить выписку можно только через наш сервис.
+              </p>
+            </motion.div>
+
+            <motion.a
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
               href="https://wa.me/77478609282?text=Здравствуйте!%20Хочу%20узнать%20условия%20рассрочки%20от%20Pluse.kz"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-[#8F6ED5] text-white px-8 py-4 text-base rounded-2xl font-medium shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all duration-300 gap-2"
+              className="group inline-flex items-center gap-2 bg-[#0088f5] text-white px-8 py-4 rounded-2xl text-base font-semibold shadow-[0_8px_30px_rgba(0,136,245,0.3)] hover:shadow-[0_8px_30px_rgba(0,136,245,0.5)] hover:scale-105 hover:bg-[#0979ff] transition-all duration-300"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5">
-                <path d="M17.6 6.32A8.86 8.86 0 0 0 12.04 4C7.58 4 4 7.58 4 12.04C4 13.84 4.52 15.56 5.5 17L4 20.5L7.6 19.02C9.02 19.92 10.48 20.38 12.04 20.38C16.5 20.38 20.38 16.8 20.38 12.34C20.38 9.5 19.38 7.04 17.6 6.32ZM12.04 18.98C10.62 18.98 9.26 18.54 8.1 17.7L7.82 17.52L5.86 18.34L6.68 16.44L6.44 16.1C5.52 14.9 5.02 13.48 5.02 12.04C5.02 8.12 8.12 5.02 12.04 5.02C15.96 5.02 18.96 8.12 18.96 12.04C18.96 15.96 15.94 18.98 12.04 18.98Z" fill="currentColor"/>
-              </svg>
+              <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
               Получить детали в WhatsApp
-            </a>
-          </div>
-          <div className="mt-10 md:mt-0 md:ml-0 z-10 flex justify-center md:justify-end">
-            <img
-              src="/ser2.png"
-              alt="Bank Statement Upload"
-              className="w-full max-w-xs md:max-w-md h-auto object-contain opacity-90 mx-auto"
-              style={{
-                WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
-                maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
-              }}
-            />
-          </div>
+            </motion.a>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mt-10 md:mt-0 md:ml-0 z-10 flex justify-center md:justify-end relative"
+          >
+            <div className="relative w-full max-w-xs md:max-w-md aspect-square">
+              <Image
+                src="/ser2.png"
+                alt="Bank Statement Upload"
+                fill
+                className="object-contain opacity-90"
+                style={{
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+                  maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
+                }}
+              />
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="absolute inset-0 bg-gradient-to-tr from-[#0088f5]/10 via-transparent to-transparent rounded-3xl"
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

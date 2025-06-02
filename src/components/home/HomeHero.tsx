@@ -16,7 +16,7 @@ interface HomeHeroProps {
 
 export const HomeHero: React.FC<HomeHeroProps> = ({ isLoading }) => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-[#FDFCFB] via-white to-[#f0f9ff] min-h-[80vh]">
+    <div className="relative overflow-hidden bg-gradient-to-br from-[#FDFCFB] via-white to-[#f0f9ff] max-h-[900px]">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -78,8 +78,8 @@ export const HomeHero: React.FC<HomeHeroProps> = ({ isLoading }) => {
             transition={{ duration: 0.5 }}
             className="relative z-10"
           >
-            <div className="mx-auto max-w-7xl px-6 pt-16 pb-4 sm:pt-24 lg:pt-32">
-              <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-x-12 gap-y-16 items-center">
+            <div className="mx-auto max-w-7xl px-6 pt-12 pb-4 sm:pt-16 lg:pt-20">
+              <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-x-12 gap-y-8 items-center">
                 <div className="max-w-2xl">
                   {/* Main heading */}
                   <motion.h1 

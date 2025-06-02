@@ -1,42 +1,72 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export default function BnplHeroBlock() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#181C36] h-[568px] py-8 sm:py-0">
-      {/* Геометрические элементы */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none select-none">
-        {/* Большой фиолетовый угол */}
-        <div className="absolute top-0 right-0 w-[800px] h-[600px] transform rotate-[-10deg] translate-x-1/4 translate-y-[-10%] bg-gradient-to-br from-[#8F6ED5] via-[#6B4FD5] to-[#FDFCFB] opacity-40 rounded-[40px] transition-all duration-1000"></div>
-        {/* Средний угол */}
-        <div className="absolute top-1/3 right-0 w-[600px] h-[400px] transform rotate-[-15deg] translate-x-1/3 bg-gradient-to-br from-[#7F5EC5] via-[#5B3FD5] to-[#FDFCFB] opacity-30 rounded-[40px] transition-all duration-1000"></div>
-        {/* Маленький угол */}
-        <div className="absolute bottom-10 right-1/4 w-[300px] h-[200px] transform rotate-[-5deg] bg-gradient-to-br from-[#6B4FD5] via-[#4B2FD5] to-[#FDFCFB] opacity-20 rounded-[40px] transition-all duration-1000"></div>
-      </div>
-      {/* Текстовый блок hero */}
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 w-full relative z-10 flex items-center min-h-[80vh] sm:min-h-[60vh]">
-        <div className="w-full md:max-w-[800px] lg:max-w-[900px] text-left mt-12">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8 leading-tight text-left break-words px-4">
-            Помогаем предпринимателям<br />не терять прибыль <span className='whitespace-nowrap'>на рассрочках</span>
+    <section className="relative isolate overflow-hidden bg-[#0f172a]">
+      <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mx-auto max-w-2xl text-center"
+        >
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            Помогаем предпринимателям<br />
+            <span className="text-[#0088f5] relative">
+              не терять прибыль <span className='whitespace-nowrap'>на рассрочках</span>
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+                className="absolute bottom-1 left-0 right-0 h-2 bg-[#0979ff] opacity-20 -z-10"
+              />
+            </span>
           </h1>
-          <div className="text-sm sm:text-lg text-white/80 mb-8 max-w-lg text-left px-4">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300"
+          >
             <ul className="list-none space-y-2">
-              <li><span className="inline-block align-middle mr-2">—</span>Процент одобрения — до 60%</li>
-              <li><span className="inline-block align-middle mr-2">—</span>Вы выбираете срок и проценты</li>
-              <li><span className="inline-block align-middle mr-2">—</span>от 3% на 36 месяцев</li>
+              <li><span className="inline-block align-middle mr-2 text-[#0088f5]">—</span>Процент одобрения — до 60%</li>
+              <li><span className="inline-block align-middle mr-2 text-[#0088f5]">—</span>Вы выбираете срок и проценты</li>
+              <li><span className="inline-block align-middle mr-2 text-[#0088f5]">—</span>от 3% на 36 месяцев</li>
             </ul>
-          </div>
-          <a
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <motion.a
             href="https://wa.me/77478609282?text=Здравствуйте!%20Хочу%20узнать%20условия%20рассрочки%20от%20Pluse.kz"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-[#8F6ED5] border-2 border-[#8F6ED5] sm:bg-[#8F6ED5] sm:text-white sm:border-none px-4 py-3 text-sm rounded-lg sm:px-8 sm:py-4 sm:text-base sm:rounded-xl hover:bg-[#F0F4FF] sm:hover:bg-[#7F5EC5] transition-all duration-200 ml-4"
+              className="bg-gradient-to-r from-[#0088f5] to-[#0979ff] text-white px-8 py-4 rounded-2xl text-base font-medium shadow-[0_8px_30px_rgba(0,136,245,0.3)] hover:shadow-[0_12px_40px_rgba(0,136,245,0.5)] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2"
           >
-            <MessageCircle size={20} />
+              <MessageCircle className="w-5 h-5" />
             Получить детали в WhatsApp
-          </a>
-        </div>
+            </motion.a>
+          </motion.div>
+        </motion.div>
       </div>
+      <svg
+        viewBox="0 0 1024 1024"
+        className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
+        aria-hidden="true"
+      >
+        <circle cx="512" cy="512" r="512" fill="url(#gradient)" fillOpacity="0.7" />
+        <defs>
+          <radialGradient id="gradient">
+            <stop stopColor="#0088f5" />
+            <stop offset="1" stopColor="#0979ff" />
+          </radialGradient>
+        </defs>
+      </svg>
     </section>
   );
 } 
