@@ -39,7 +39,7 @@ export const FAQ: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 lg:py-20 bg-white">
       <div className="mx-auto max-w-4xl px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -51,11 +51,11 @@ export const FAQ: React.FC = () => {
         >
           <div className="flex items-center justify-center gap-3 mb-4">
             <HelpCircle className="w-8 h-8 text-blue-600" />
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="text-4xl font-bold tracking-tight text-slate-900">
               Часто Задаваемые Вопросы
             </h2>
           </div>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-base text-slate-600 leading-relaxed lg:text-xl max-w-2xl mx-auto">
             Есть вопросы? У нас есть ответы. Если вы не можете найти то, что ищете, 
             свяжитесь с нашей командой поддержки.
           </p>

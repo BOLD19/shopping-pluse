@@ -1,33 +1,17 @@
-// Layout Components
-export { default as Header } from './Header';
-export { default as Footer } from './Footer';
-
 // UI Components
-export * from './ui';
+export { Button } from './ui/Button';
+export { Card } from './ui/Card';
+export { Input } from './ui/Input';
+export { Modal } from './ui/Modal';
+
+// Home Page Sections
+export { Features } from './home/Features';
+export { FirstStepImage } from './home/FirstStepImage';
+export { Footer } from './home/Footer';
+export { Hero } from './home/Hero';
+export { ImageSection } from './home/ImageSection';
+export { Problems } from './home/Problems';
+export { TermsControl } from './home/TermsControl';
 
 // Form Components
-export { default as ContactForm } from './ContactForm';
-
-// Home Page Components
-export * from './home';
-
-// BNPL Components
-export { default as BnplConditionsBlock } from './BnplConditionsBlock';
-export { default as BnplApprovalBlock } from './BnplApprovalBlock';
-export { default as BnplHeroBlock } from './BnplHeroBlock';
-export { default as BnplProblemsBlock } from './BnplProblemsBlock';
-export { default as BnplBusinessSimplificationBlock } from './BnplBusinessSimplificationBlock';
-export { default as BnplWhyChooseBlock } from './BnplWhyChooseBlock';
-export { default as BnplProfitHelpBlock } from './BnplProfitHelpBlock';
-
-// Business Components
-export { default as AccountConditionsBlock } from './AccountConditionsBlock';
-export { default as ServicesGrid } from './ServicesGrid';
-export { default as ServicesTabs } from './ServicesTabs';
-export { default as TrustSection } from './TrustSection';
-export { default as DigitalBranchComparison } from './DigitalBranchComparison';
-export { default as BusinessTrustBlock } from './BusinessTrustBlock';
-export { default as PartnershipWithRBK } from './PartnershipWithRBK';
-
-// Re-export types for convenience
-export type * from '@/types'; 
+export { default as ContactForm } from './ContactForm'; 

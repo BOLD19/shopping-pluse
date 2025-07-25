@@ -1,114 +1,195 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Zap, 
-  Shield, 
-  Smartphone, 
-  Globe, 
-  Users, 
-  Award 
-} from 'lucide-react';
-
-const features = [
-  {
-    icon: Zap,
-    title: "Молниеносная Скорость",
-    description: "Оптимизированная производительность и быстрая загрузка для лучшего пользовательского опыта."
-  },
-  {
-    icon: Shield,
-    title: "Надёжность и Безопасность",
-    description: "Создано с использованием лучших практик безопасности и надёжной инфраструктуры."
-  },
-  {
-    icon: Smartphone,
-    title: "Адаптивный Дизайн",
-    description: "Идеальный дизайн на всех устройствах - компьютер, планшет и мобильный телефон."
-  },
-  {
-    icon: Globe,
-    title: "Глобальная Готовность",
-    description: "Поддержка нескольких языков и международные лучшие практики."
-  },
-  {
-    icon: Users,
-    title: "Удобство Использования",
-    description: "Интуитивный интерфейс, разработанный для лучшего пользовательского опыта."
-  },
-  {
-    icon: Award,
-    title: "Премиум Качество",
-    description: "Высококачественный код и дизайн, отвечающий отраслевым стандартам."
-  }
-];
+import Image from 'next/image';
 
 export const Features: React.FC = () => {
   return (
-    <section className="py-20 bg-white">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Header */}
-        <motion.div 
+    <section className="py-12 lg:py-20 bg-white">
+      <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
+        {/* Mobile Header */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16 text-center lg:hidden"
         >
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl mb-4">
-            Мощные Возможности
+          <h2 className="text-4xl font-bold tracking-tight text-slate-900">
+            Что вы получаете?
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Всё необходимое для создания потрясающих лендинг страниц и увеличения конверсии.
-          </p>
         </motion.div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+        {/* Desktop Layout */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-16 items-start">
+          {/* Left Side - Fixed Header */}
+          <div className="sticky top-20">
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="group"
             >
-              <div className="relative p-8 bg-gradient-to-br from-slate-50 to-white rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
-                {/* Icon */}
-                <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-6 h-6 text-white" />
+              <h2 className="text-4xl font-bold tracking-tight text-slate-900 mb-8">
+                Что вы получаете?
+              </h2>
+            </motion.div>
+          </div>
+
+          {/* Right Side - Scrolling Content */}
+          <div className="space-y-16">
+            {/* Feature 1 */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.5 }}
+              className="bg-white rounded-2xl p-8 shadow-lg"
+            >
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 text-slate-800">
+                Свой интернет-магазин под ключ
+              </h3>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                Не страница в чужой системе. Полноценный магазин под вашим брендом — с оплатой, доставкой и рассрочкой.
+              </p>
+              <div className="flex justify-center mb-8">
+                <div className="w-[300px] h-[300px] rounded-lg overflow-hidden">
+                  <Image
+                    src="/123.png"
+                    alt="Интернет-магазин под ключ"
+                    width={300}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-semibold text-slate-900 mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  {feature.description}
-                </p>
-
-                {/* Hover effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </motion.div>
-          ))}
+
+            {/* Feature 2 */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true, amount: 0.5 }}
+              className="bg-white rounded-2xl p-8 shadow-lg"
+            >
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 text-slate-800">
+                Никаких чужих в вашем бизнесе
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Только вы управляете карточками, ценами и витриной. Никаких демпингов, никаких вмешательств.
+              </p>
+            </motion.div>
+
+            {/* Feature 3 */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true, amount: 0.5 }}
+              className="bg-white rounded-2xl p-8 shadow-lg"
+            >
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 text-slate-800">
+                Прямой контакт с клиентами
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Вся база у вас. Повторные продажи без рекламы.
+              </p>
+            </motion.div>
+
+            {/* Feature 4 */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true, amount: 0.5 }}
+              className="bg-white rounded-2xl p-8 shadow-lg"
+            >
+              <h3 className="text-xl sm:text-2xl font-bold mb-6 text-slate-800">
+                AI всё сделает за вас
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Фото, тексты и описание товара — генерируются нейросетью.
+              </p>
+            </motion.div>
+          </div>
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <p className="text-slate-600 mb-6">
-            Готовы начать работу с этими мощными возможностями?
-          </p>
-          <button className="bg-blue-600 text-white px-8 py-4 rounded-2xl font-semibold hover:bg-blue-700 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-            Изучить Все Возможности
-          </button>
-        </motion.div>
+        {/* Mobile Layout */}
+        <div className="lg:hidden">
+          {/* Mobile Features Grid */}
+          <div className="grid grid-cols-1 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true, amount: 0.5 }}
+              className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg"
+            >
+              <h3 className="text-2xl font-bold mb-6 text-slate-800 text-center">
+                Свой интернет-магазин под ключ
+              </h3>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                Не страница в чужой системе. Полноценный магазин под вашим брендом — с оплатой, доставкой и рассрочкой.
+              </p>
+              <div className="flex justify-center mb-8">
+                <div className="w-full max-w-[300px] h-[200px] sm:h-[300px] rounded-lg overflow-hidden">
+                  <Image
+                    src="/123.png"
+                    alt="Интернет-магазин под ключ"
+                    width={300}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true, amount: 0.5 }}
+              className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg"
+            >
+              <h3 className="text-2xl font-bold mb-6 text-slate-800 text-center">
+                Никаких чужих в вашем бизнесе
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Только вы управляете карточками, ценами и витриной. Никаких демпингов, никаких вмешательств.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true, amount: 0.5 }}
+              className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg"
+            >
+              <h3 className="text-2xl font-bold mb-6 text-slate-800 text-center">
+                Прямой контакт с клиентами
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Вся база у вас. Повторные продажи без рекламы.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true, amount: 0.5 }}
+              className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg"
+            >
+              <h3 className="text-2xl font-bold mb-6 text-slate-800 text-center">
+                AI всё сделает за вас
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                Фото, тексты и описание товара — генерируются нейросетью.
+              </p>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

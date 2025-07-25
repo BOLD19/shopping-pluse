@@ -1,9 +1,20 @@
 // Universal Landing Page Components
-export { Hero } from './Hero';
+export { Comparison } from './Comparison';
+export { Customers } from './Customers';
+export { DemoCTA } from './DemoCTA';
 export { Features } from './Features';
-export { About } from './About';
-export { CTA } from './CTA';
-export { FAQ } from './FAQ';
+export { FirstStepImage } from './FirstStepImage';
+export { FlipCards } from './FlipCards';
+export { Footer } from './Footer';
+export { Header } from './Header';
+export { Hero } from './Hero';
+export { Hook } from './Hook';
+export { ImageSection } from './ImageSection';
+export { Problems } from './Problems';
+export { TermsControl } from './TermsControl';
+export { Way } from './Way';
+export { Who } from './Who';
 
 // Legacy components
-export { HomeCTA } from './HomeCTA'; 
+export { ContactForm } from './ContactForm';
+export { FAQ } from './FAQ'; 
