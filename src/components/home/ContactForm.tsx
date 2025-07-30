@@ -17,11 +17,11 @@ export const ContactForm: React.FC = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const utms: { [key: string]: string } = {};
-    for (const [key, value] of params.entries()) {
+    params.forEach((value, key) => {
       if (key.startsWith('utm_')) {
         utms[key] = value;
       }
-    }
+    });
     setUtmData(utms);
   }, []);
 
