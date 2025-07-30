@@ -23,6 +23,8 @@ const nextConfig = {
   compress: true,
   // Only for Docker deployment
   output: process.env.NODE_ENV === 'production' ? 'standalone' : undefined,
+  // For GitHub Pages export
+  trailingSlash: true,
 };
 
 module.exports = nextConfig; 
