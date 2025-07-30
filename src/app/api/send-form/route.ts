@@ -32,9 +32,9 @@ async function sendTelegramMessage(chatId: string, message: string) {
   }
 }
 
-export async function POST(request: Request) {
+export async function POST(req: Request) {
   try {
-    const data = await request.json();
+    const data = await req.json();
     const { name, phone, activity, utm } = data;
 
     if (!name || !phone) {
