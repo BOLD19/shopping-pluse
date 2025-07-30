@@ -115,11 +115,11 @@ export const getUtmParams = (): Record<string, string> => {
   const urlParams = new URLSearchParams(window.location.search);
   const utmParams: Record<string, string> = {};
   
-  for (const [key, value] of urlParams.entries()) {
+  urlParams.forEach((value, key) => {
     if (key.startsWith('utm_')) {
       utmParams[key] = value;
     }
-  }
+  });
   
   return utmParams;
 };
