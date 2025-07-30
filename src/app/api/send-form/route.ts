@@ -33,8 +33,9 @@ async function sendTelegramMessage(chatId: string, message: string) {
 }
 
 export async function POST(req: Request) {
+  let data: any = {};
   try {
-    const data = await req.json();
+    data = await req.json();
     const { name, phone, activity, utm } = data;
 
     if (!name || !phone) {
