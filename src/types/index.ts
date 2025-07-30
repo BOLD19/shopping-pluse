@@ -166,4 +166,4 @@ export interface BnplApplication {
 }
 
 // Home page types
-export * from './home'; 
+// export * from './home'; // Removed - module not found 
